@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2e8pvefg1rge"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_vccpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7u0q"]
+size = Vector2(32, 64)
+
+[sub_resource type="Animation" id="Animation_3ykgd"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_o1pes"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, -5), Vector2(0, 0), Vector2(2, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nt8gq"]
+_data = {
+"idle": SubResource("Animation_3ykgd"),
+"walk": SubResource("Animation_o1pes")
+}
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_vccpa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_w7u0q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nt8gq")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 4.0
+target_desired_distance = 4.0
+avoidance_enabled = true
+radius = 30.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -32)
+zoom = Vector2(0.7, 0.7)
+position_smoothing_enabled = true
+]

@@ -1,0 +1,185 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2y5jb2b1kxcy"]
+
+[ext_resource type="Script" path="res://scripts/Minigames/PackUpMinigame.gd" id="1_kw2cv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1hk1"]
+size = Vector2(300, 200)
+
+[node name="PackUpMinigame" type="Node2D"]
+script = ExtResource("1_kw2cv")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.909804, 0.909804, 0.909804, 0.901961)
+
+[node name="Instructions" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 376.0
+offset_top = 100.0
+offset_right = 776.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Pack your suitcase with the correct items!
+Drag items to the suitcase."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 526.0
+offset_top = 220.0
+offset_right = 626.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Shirt" type="Area2D" parent="Items" groups=["draggable"]]
+position = Vector2(200, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="Items/Shirt"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Shirt"]
+shape = SubResource("RectangleShape2D_x1hk1")
+debug_color = Color(0.921569, 0.211765, 0.513726, 0.129412)
+
+[node name="Label" type="Label" parent="Items/Shirt"]
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Shirt"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pants" type="Area2D" parent="Items" groups=["draggable"]]
+position = Vector2(350, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="Items/Pants"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Pants"]
+shape = SubResource("RectangleShape2D_x1hk1")
+debug_color = Color(0.921569, 0.211765, 0.513726, 0.129412)
+
+[node name="Label" type="Label" parent="Items/Pants"]
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pants"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Toothbrush" type="Area2D" parent="Items" groups=["draggable"]]
+position = Vector2(500, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="Items/Toothbrush"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Toothbrush"]
+shape = SubResource("RectangleShape2D_x1hk1")
+debug_color = Color(0.921569, 0.211765, 0.513726, 0.129412)
+
+[node name="Label" type="Label" parent="Items/Toothbrush"]
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Toothbrush"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Book" type="Area2D" parent="Items" groups=["draggable"]]
+position = Vector2(650, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="Items/Book"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Book"]
+shape = SubResource("RectangleShape2D_x1hk1")
+debug_color = Color(0.921569, 0.211765, 0.513726, 0.129412)
+
+[node name="Label" type="Label" parent="Items/Book"]
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Book"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Suitcase" type="Area2D" parent="."]
+position = Vector2(800, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="Suitcase"]
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suitcase"]
+shape = SubResource("RectangleShape2D_x1hk1")
+debug_color = Color(0.921569, 0.211765, 0.513726, 0.129412)
+
+[node name="Label" type="Label" parent="Suitcase"]
+offset_left = -75.0
+offset_top = -100.0
+offset_right = 75.0
+offset_bottom = -60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Suitcase"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FeedbackLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 376.0
+offset_top = 500.0
+offset_right = 776.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Correct!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="TimerLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 526.0
+offset_top = 50.0
+offset_right = 626.0
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+]

@@ -47,6 +47,3 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "Spark's Tour Guide"
 horizontal_alignment = 1
-
-[connection signal="pressed" from="LocationSigns/TrainStationSign" to="." method="_on_location_sign_pressed" binds= ["TrainStation", "PackUpMinigame", Vector2(800, 225)]]
-]

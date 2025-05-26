@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2e8pvefg1rge"]
+[gd_scene load_steps=6 format=3 uid="uid://d2e8pvefg1rge"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_vccpa"]
 
@@ -71,4 +71,3 @@ radius = 30.0
 position = Vector2(0, -32)
 zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
-]

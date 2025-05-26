@@ -51,4 +51,3 @@ grow_horizontal = 0
 text = "Home"
 
 [connection signal="pressed" from="UI/HomeButton" to="." method="_on_home_button_pressed"]
-]

@@ -182,4 +182,3 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-]

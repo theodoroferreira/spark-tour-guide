@@ -29,7 +29,10 @@ func display_next_dialog():
 	text_label.text = current_dialog.text
 	
 	if current_dialog.has("portrait"):
-		portrait.texture = load(current_dialog.portrait)
+		if ResourceLoader.exists(current_dialog.portrait):
+			portrait.texture = load(current_dialog.portrait)
+		else:
+			portrait.texture = null
 	
 	animation_player.play("text_appear")
 

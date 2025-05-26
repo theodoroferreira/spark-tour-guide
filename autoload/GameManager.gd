@@ -24,14 +24,17 @@ func change_scene(scene_path):
 		current_scene.queue_free()
 	var scene_resource = load(scene_path)
 	current_scene = scene_resource.instantiate()
-	get_tree().get_root().add_child(current_scene)
+	get_tree().get_root().call_deferred("add_child", current_scene)
+	call_deferred("_set_current_scene")
+
+func _set_current_scene():
 	get_tree().current_scene = current_scene
 
 func give_feedback(text):
 	var feedback = load("res://scenes/UI/FeedbackLabel.tscn").instantiate()
 	feedback.set_text(text)
-	get_tree().get_root().add_child(feedback)
-	feedback.show_feedback()
+	get_tree().get_root().call_deferred("add_child", feedback)
+	feedback.call_deferred("show_feedback")
 
 func on_minigame_completed(success):
 	if success:

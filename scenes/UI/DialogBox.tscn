@@ -112,4 +112,3 @@ text = ">"
 libraries = {
 "": SubResource("AnimationLibrary_n4b3m")
 }
-]

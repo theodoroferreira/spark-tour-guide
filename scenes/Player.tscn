@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2e8pvefg1rge"]
+[gd_scene load_steps=7 format=3 uid="uid://d2e8pvefg1rge"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_vccpa"]
+[ext_resource type="Texture2D" uid="uid://dm65n5s4k087y" path="res://assets/characters/spark.png" id="2_k7pkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7u0q"]
 size = Vector2(32, 64)
@@ -51,6 +52,7 @@ script = ExtResource("1_vccpa")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_k7pkx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -32)

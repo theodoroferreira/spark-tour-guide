@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj1bpqapgcwby"]
+[gd_scene load_steps=5 format=3 uid="uid://cj1bpqapgcwby"]
 
 [ext_resource type="Script" path="res://scripts/Locations/TrainStation.gd" id="1_8lcs3"]
 [ext_resource type="PackedScene" uid="uid://d2e8pvefg1rge" path="res://scenes/Player.tscn" id="2_isgb7"]
+[ext_resource type="Texture2D" uid="uid://bjvtqxsyyp770" path="res://reference_images/train_station.png" id="2_k6u8y"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_v5e7i"]
 
 [node name="TrainStation" type="Node2D"]
@@ -10,6 +11,7 @@ script = ExtResource("1_8lcs3")
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
+texture = ExtResource("2_k6u8y")
 expand_mode = 1
 stretch_mode = 6
 

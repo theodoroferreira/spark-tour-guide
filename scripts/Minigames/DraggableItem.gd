@@ -27,8 +27,20 @@ func _on_input_event(_viewport, event, _shape_idx):
 				dragging = true
 				drag_offset = global_position - get_global_mouse_position()
 			else:
-				# Stop dragging
+				# Stop dragging and handle drop logic
 				dragging = false
+				# Check if dropped on the suitcase
+				var dropped_on_suitcase = false
+				for area in get_overlapping_areas():
+					if area.name == "Suitcase":
+						if minigame_reference:
+							minigame_reference.check_item(item_name)
+						visible = false
+						dropped_on_suitcase = true
+						break
+				# If not dropped on suitcase, reset position
+				if not dropped_on_suitcase:
+					global_position = original_position
 
 func _process(delta):
 	if dragging:

@@ -45,4 +45,6 @@ func _on_location_sign_pressed(location_name, minigame_name, target_position):
 	GameManager.load_location_scene(location_name)
  
 func _on_train_station_sign_pressed():
+	# Set the Train Station minigame before loading the location
+	GameManager.minigame_to_load = "PackUpMinigame"
 	GameManager.load_location_scene("TrainStation")

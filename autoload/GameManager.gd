@@ -3,6 +3,7 @@ extends Node
 var current_scene = null
 var player = null
 var current_location = "Home"
+var minigame_to_load = ""
 
 func _ready():
 	load_home_scene()

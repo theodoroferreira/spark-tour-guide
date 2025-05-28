@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcylxj15aelv3"]
+[gd_scene load_steps=6 format=3 uid="uid://bcylxj15aelv3"]
 
 [ext_resource type="Script" uid="uid://b474s8isuehye" path="res://scripts/UI/DialogBox.gd" id="1_5fjy5"]
+[ext_resource type="Texture2D" uid="uid://dv071adth1vdf" path="res://assets/characters/spark_reborn_face.png" id="2_4336f"]
 
 [sub_resource type="Animation" id="Animation_rxpid"]
 resource_name = "fade_out"
@@ -90,8 +91,9 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 169.0
 offset_bottom = 155.0
-expand_mode = 1
-stretch_mode = 5
+texture = ExtResource("2_4336f")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="NextIndicator" type="Label" parent="Panel"]
 layout_mode = 1
@@ -110,5 +112,5 @@ text = ">"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_n4b3m")
+&"": SubResource("AnimationLibrary_n4b3m")
 }

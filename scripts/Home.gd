@@ -7,12 +7,12 @@ var dialog_data = [
 	{
 		"name": "Spark",
 		"text": "Hi there! Welcome to Ijuí. I'm Spark, your guide!",
-		"portrait": "res://assets/characters/spark.png"
+		"portrait": "res://assets/characters/spark_reborn_face.png"
 	},
 	{
 		"name": "Spark",
 		"text": "Click on any of the signs to visit a location in town!",
-		"portrait": "res://assets/characters/spark.png"
+		"portrait": "res://assets/characters/spark_reborn_face.png"
 	}
 ]
 

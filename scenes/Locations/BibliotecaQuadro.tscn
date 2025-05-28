@@ -16,7 +16,8 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="Player" parent="." instance=ExtResource("2_isgb7")]
-position = Vector2(576, 400)
+position = Vector2(239, 511)
+scale = Vector2(0.5, 0.5)
 
 [node name="StartMinigameButton" type="Button" parent="."]
 offset_left = 426.0

@@ -31,6 +31,24 @@ var completed_count = 0
 # Carrega palavras do JSON
 var word_data = []
 
+var dialog_data = [
+	{
+		"name": "Spark",
+		"text": "Olá! Vamos resolver palavras cruzadas em inglês",
+		"portrait": "res://assets/characters/spark_reborn_face.png"
+	},
+	{
+		"name": "Spark",
+		"text": "Arraste seu dedo sobre as letras para formar as palavras!",
+		"portrait": "res://assets/characters/spark_reborn_face.png"
+	},
+	{
+		"name": "Spark",
+		"text": "Vamos começar!",
+		"portrait": "res://assets/characters/spark_reborn_face.png"
+	}
+	]
+
 func _ready():
 	# Connect the minigame completion signal to GameManager
 	minigame_completed.connect(GameManager.on_minigame_completed)
@@ -126,7 +144,7 @@ func create_visual_grid():
 				cell.set_meta("letter", grid_value)
 				cell.set_meta("revealed", false)
 			else:
-				cell.color = Color(0.1, 0.1, 0.1, 1.0)  # Cor mais escura para células vazias
+				cell.color = Color(0.79, 1.0, 0.48, 0.0)  # Cor mais escura para células vazias
 
 			crossword_grid.add_child(cell)
 
@@ -142,18 +160,12 @@ func setup_ui():
 	progress_bar.value = 0
 
 func start_minigame():
-	show_spark_introduction()
+	start_location_dialog()
 	setup_next_word()
 
-func show_spark_introduction():
-	var messages = [
-		"Olá! Eu sou o Spark! 🐕",
-		"Vamos resolver palavras cruzadas em inglês!",
-		"Arraste seu dedo sobre as letras para formar as palavras!",
-		"Vamos começar!"
-	]
-	spark_dialog.show_messages(messages)
-	await spark_dialog.messages_finished
+func start_location_dialog():
+	var dialog_box = $UI/DialogBox
+	dialog_box.start_dialog(dialog_data)
 
 func setup_next_word():
 	if current_word_index >= crossword_data.words.size():

@@ -8,12 +8,12 @@ var dialog_data = [
 	{
 		"name": "Spark",
 		"text": "Este é o nosso jogo de palavras cruzadas em inglês!",
-		"portrait": "res://assets/characters/spark.png"
+		"portrait": "res://assets/characters/spark_reborn_face.png"
 	},
 	{
 		"name": "Spark",
 		"text": "Clique no botão para começar a jogar e aprender novas palavras!",
-		"portrait": "res://assets/characters/spark.png"
+		"portrait": "res://assets/characters/spark_reborn_face.png"
 	}
 ]
 

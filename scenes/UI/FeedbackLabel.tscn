@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5y6mf3urvx7t"]
 
-[ext_resource type="Script" path="res://scripts/UI/FeedbackLabel.gd" id="1_o2yrc"]
+[ext_resource type="Script" uid="uid://cqhbuwnabo15v" path="res://scripts/UI/FeedbackLabel.gd" id="1_o2yrc"]
 
 [sub_resource type="Animation" id="Animation_mkugy"]
 resource_name = "fade_out"
@@ -48,8 +48,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2h21y"]
 _data = {
-"fade_out": SubResource("Animation_mkugy"),
-"popup": SubResource("Animation_j25ue")
+&"fade_out": SubResource("Animation_mkugy"),
+&"popup": SubResource("Animation_j25ue")
 }
 
 [node name="FeedbackLabel" type="Control"]

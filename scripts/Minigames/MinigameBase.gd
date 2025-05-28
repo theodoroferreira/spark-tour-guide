@@ -8,7 +8,7 @@ func start():
 
 # Called when the minigame ends
 func end(success):
-	emit_signal("minigame_completed", success)
+	minigame_completed.emit(success)
 
 # Reset the minigame to its initial state
 func reset():

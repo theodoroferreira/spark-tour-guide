@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2y5jb2b1kxcy"]
 
-[ext_resource type="Script" path="res://scripts/Minigames/PackUpMinigame.gd" id="1_kw2cv"]
-[ext_resource type="Script" path="res://scripts/Minigames/DraggableItem.gd" id="2_mdri"]
+[ext_resource type="Script" uid="uid://ctlokk60x4x7t" path="res://scripts/Minigames/PackUpMinigame.gd" id="1_kw2cv"]
+[ext_resource type="Script" uid="uid://yfkkkv64em21" path="res://scripts/Minigames/DraggableItem.gd" id="2_mdri"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1hk1"]
 size = Vector2(300, 200)

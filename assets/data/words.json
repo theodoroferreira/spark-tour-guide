@@ -1,0 +1,362 @@
+[
+    {
+        "word": "apple",
+        "hint": "A red or green fruit"
+    },
+    {
+        "word": "banana",
+        "hint": "A long yellow fruit"
+    },
+    {
+        "word": "grape",
+        "hint": "A small purple or green fruit"
+    },
+    {
+        "word": "orange",
+        "hint": "A round citrus fruit"
+    },
+    {
+        "word": "pear",
+        "hint": "A green fruit with a bell shape"
+    },
+    {
+        "word": "peach",
+        "hint": "A soft fruit with fuzzy skin"
+    },
+    {
+        "word": "lemon",
+        "hint": "A sour yellow fruit"
+    },
+    {
+        "word": "lime",
+        "hint": "A small green citrus fruit"
+    },
+    {
+        "word": "watermelon",
+        "hint": "A big green fruit with red inside"
+    },
+    {
+        "word": "strawberry",
+        "hint": "A small red fruit with seeds outside"
+    },
+    {
+        "word": "carrot",
+        "hint": "An orange vegetable"
+    },
+    {
+        "word": "potato",
+        "hint": "You can make fries from this"
+    },
+    {
+        "word": "tomato",
+        "hint": "Red and round, used in salads"
+    },
+    {
+        "word": "lettuce",
+        "hint": "Green leaves used in salad"
+    },
+    {
+        "word": "onion",
+        "hint": "Makes you cry when you cut it"
+    },
+    {
+        "word": "broccoli",
+        "hint": "Looks like a green tree"
+    },
+    {
+        "word": "corn",
+        "hint": "Yellow vegetable on a cob"
+    },
+    {
+        "word": "bean",
+        "hint": "Small and found in feijoada"
+    },
+    {
+        "word": "pepper",
+        "hint": "Can be spicy or sweet"
+    },
+    {
+        "word": "pumpkin",
+        "hint": "Orange and used on Halloween"
+    },
+    {
+        "word": "dog",
+        "hint": "A loyal animal that barks"
+    },
+    {
+        "word": "cat",
+        "hint": "Says 'meow'"
+    },
+    {
+        "word": "cow",
+        "hint": "Gives us milk"
+    },
+    {
+        "word": "horse",
+        "hint": "You can ride it"
+    },
+    {
+        "word": "sheep",
+        "hint": "Gives us wool"
+    },
+    {
+        "word": "pig",
+        "hint": "Oinks and loves mud"
+    },
+    {
+        "word": "chicken",
+        "hint": "Lays eggs"
+    },
+    {
+        "word": "duck",
+        "hint": "Says 'quack'"
+    },
+    {
+        "word": "goat",
+        "hint": "Has horns and eats anything"
+    },
+    {
+        "word": "rabbit",
+        "hint": "Has long ears and hops"
+    },
+    {
+        "word": "lion",
+        "hint": "King of the jungle"
+    },
+    {
+        "word": "tiger",
+        "hint": "Striped big cat"
+    },
+    {
+        "word": "elephant",
+        "hint": "Big and has a trunk"
+    },
+    {
+        "word": "giraffe",
+        "hint": "Has a long neck"
+    },
+    {
+        "word": "zebra",
+        "hint": "Black and white stripes"
+    },
+    {
+        "word": "monkey",
+        "hint": "Loves bananas"
+    },
+    {
+        "word": "bear",
+        "hint": "Big and hairy, likes honey"
+    },
+    {
+        "word": "penguin",
+        "hint": "A bird that can't fly"
+    },
+    {
+        "word": "kangaroo",
+        "hint": "Has a pouch"
+    },
+    {
+        "word": "panda",
+        "hint": "Black and white bear from China"
+    },
+    {
+        "word": "car",
+        "hint": "You drive it"
+    },
+    {
+        "word": "bus",
+        "hint": "Takes many people"
+    },
+    {
+        "word": "train",
+        "hint": "Runs on tracks"
+    },
+    {
+        "word": "bike",
+        "hint": "Two wheels and pedals"
+    },
+    {
+        "word": "plane",
+        "hint": "Flies in the sky"
+    },
+    {
+        "word": "boat",
+        "hint": "Sails on water"
+    },
+    {
+        "word": "truck",
+        "hint": "Carries heavy things"
+    },
+    {
+        "word": "scooter",
+        "hint": "You ride and push it"
+    },
+    {
+        "word": "subway",
+        "hint": "Underground train"
+    },
+    {
+        "word": "helicopter",
+        "hint": "Flies with spinning blades"
+    },
+    {
+        "word": "school",
+        "hint": "A place to learn"
+    },
+    {
+        "word": "teacher",
+        "hint": "Helps you learn"
+    },
+    {
+        "word": "student",
+        "hint": "Goes to school"
+    },
+    {
+        "word": "book",
+        "hint": "You read it"
+    },
+    {
+        "word": "pen",
+        "hint": "Used for writing"
+    },
+    {
+        "word": "pencil",
+        "hint": "Used for drawing and writing"
+    },
+    {
+        "word": "desk",
+        "hint": "Where you sit and write"
+    },
+    {
+        "word": "notebook",
+        "hint": "Where you take notes"
+    },
+    {
+        "word": "eraser",
+        "hint": "Fixes mistakes in pencil"
+    },
+    {
+        "word": "chalk",
+        "hint": "Used on blackboards"
+    },
+    {
+        "word": "sun",
+        "hint": "Shines in the sky"
+    },
+    {
+        "word": "moon",
+        "hint": "You see it at night"
+    },
+    {
+        "word": "star",
+        "hint": "Shines in the sky at night"
+    },
+    {
+        "word": "cloud",
+        "hint": "White and fluffy in the sky"
+    },
+    {
+        "word": "rain",
+        "hint": "Falls from clouds"
+    },
+    {
+        "word": "snow",
+        "hint": "White and cold"
+    },
+    {
+        "word": "wind",
+        "hint": "Moves the air"
+    },
+    {
+        "word": "storm",
+        "hint": "Rain with thunder and lightning"
+    },
+    {
+        "word": "rainbow",
+        "hint": "Has many colors in the sky"
+    },
+    {
+        "word": "lightning",
+        "hint": "Flash during storms"
+    },
+    {
+        "word": "house",
+        "hint": "You live in it"
+    },
+    {
+        "word": "door",
+        "hint": "You open it to enter"
+    },
+    {
+        "word": "window",
+        "hint": "You look through it"
+    },
+    {
+        "word": "bed",
+        "hint": "You sleep on it"
+    },
+    {
+        "word": "chair",
+        "hint": "You sit on it"
+    },
+    {
+        "word": "table",
+        "hint": "You eat on it"
+    },
+    {
+        "word": "sofa",
+        "hint": "You sit on it in the living room"
+    },
+    {
+        "word": "lamp",
+        "hint": "Gives light"
+    },
+    {
+        "word": "mirror",
+        "hint": "You see your reflection"
+    },
+    {
+        "word": "clock",
+        "hint": "Tells the time"
+    },
+    {
+        "word": "milk",
+        "hint": "White drink from cows"
+    },
+    {
+        "word": "juice",
+        "hint": "Fruit drink"
+    },
+    {
+        "word": "bread",
+        "hint": "Used for sandwiches"
+    },
+    {
+        "word": "cheese",
+        "hint": "Made from milk"
+    },
+    {
+        "word": "egg",
+        "hint": "Laid by chickens"
+    },
+    {
+        "word": "butter",
+        "hint": "Yellow and goes on toast"
+    },
+    {
+        "word": "cake",
+        "hint": "Sweet and for birthdays"
+    },
+    {
+        "word": "cookie",
+        "hint": "Sweet and crunchy snack"
+    },
+    {
+        "word": "candy",
+        "hint": "Sweet treat"
+    },
+    {
+        "word": "honey",
+        "hint": "Made by bees"
+    }
+]

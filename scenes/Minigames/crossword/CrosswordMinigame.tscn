@@ -1,0 +1,120 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4bk84u6mjyha"]
+
+[ext_resource type="Script" path="res://scripts/Minigames/CrosswordMinigame.gd" id="1_4g2d3"]
+[ext_resource type="Script" path="res://scripts/UI/SparkDialog.gd" id="2_sd4r3"]
+
+[node name="CrosswordMinigame" type="Node2D"]
+script = ExtResource("1_4g2d3")
+
+[node name="CrosswordGrid" type="Node2D" parent="."]
+position = Vector2( 50, 50 )
+
+[node name="LetterWheel" type="Node2D" parent="."]
+position = Vector2( 600, 300 )
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 600.0
+
+[node name="WordClueLabel" type="Label" parent="UI"]
+offset_left = 50.0
+offset_top = 20.0
+offset_right = 450.0
+offset_bottom = 50.0
+text = "Dica: "
+
+[node name="FeedbackLabel" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 25)
+text = "Correto!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentWordHighlight" type="Control" parent="UI"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="SparkDialog" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_sd4r3")
+
+[node name="Background" type="ColorRect" parent="UI/SparkDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2, 0.2, 0.2, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogText" type="Label" parent="UI/SparkDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 120.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+text = "Olá! Eu sou o Spark! Vamos jogar!"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SparkIcon" type="TextureRect" parent="UI/SparkDialog"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 100.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="Button" parent="UI/SparkDialog"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -120.0
+margin_top = -50.0
+margin_right = -20.0
+margin_bottom = -20.0
+text = "Próximo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="UI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = -40.0
+margin_right = -50.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0

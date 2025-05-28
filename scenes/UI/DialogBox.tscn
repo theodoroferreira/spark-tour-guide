@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcylxj15aelv3"]
 
-[ext_resource type="Script" path="res://scripts/UI/DialogBox.gd" id="1_5fjy5"]
+[ext_resource type="Script" uid="uid://b474s8isuehye" path="res://scripts/UI/DialogBox.gd" id="1_5fjy5"]
 
 [sub_resource type="Animation" id="Animation_rxpid"]
 resource_name = "fade_out"
@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n4b3m"]
 _data = {
-"fade_out": SubResource("Animation_rxpid"),
-"text_appear": SubResource("Animation_j4e5t")
+&"fade_out": SubResource("Animation_rxpid"),
+&"text_appear": SubResource("Animation_j4e5t")
 }
 
 [node name="DialogBox" type="Control"]

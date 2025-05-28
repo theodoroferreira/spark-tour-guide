@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b33t81wdnlndr"]
 
-[ext_resource type="Script" path="res://scripts/Home.gd" id="1_p2yb4"]
+[ext_resource type="Script" uid="uid://cdro1dmc4t3gy" path="res://scripts/Home.gd" id="1_p2yb4"]
 [ext_resource type="Texture2D" uid="uid://cwhawm4kctpuv" path="res://reference_images/home.png" id="2_wonk3"]
 [ext_resource type="PackedScene" uid="uid://d2e8pvefg1rge" path="res://scenes/Player.tscn" id="2_yrnev"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_osgcs"]
@@ -28,6 +28,13 @@ offset_top = 200.0
 offset_right = 900.0
 offset_bottom = 250.0
 text = "Train Station"
+
+[node name="CrosswordSign" type="Button" parent="LocationSigns" groups=["location_signs"]]
+offset_left = 800.0
+offset_top = 300.0
+offset_right = 900.0
+offset_bottom = 350.0
+text = "Biblioteca"
 
 [node name="Player" parent="." instance=ExtResource("2_yrnev")]
 position = Vector2(576, 400)

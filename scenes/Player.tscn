@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d2e8pvefg1rge"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_vccpa"]
+[ext_resource type="Script" uid="uid://bnclg4ljy8iqj" path="res://scripts/Player.gd" id="1_vccpa"]
 [ext_resource type="Texture2D" uid="uid://dm65n5s4k087y" path="res://assets/characters/spark.png" id="2_k7pkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7u0q"]
@@ -42,8 +42,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nt8gq"]
 _data = {
-"idle": SubResource("Animation_3ykgd"),
-"walk": SubResource("Animation_o1pes")
+&"idle": SubResource("Animation_3ykgd"),
+&"walk": SubResource("Animation_o1pes")
 }
 
 [node name="Player" type="CharacterBody2D"]

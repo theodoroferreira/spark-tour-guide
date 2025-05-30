@@ -212,7 +212,11 @@ func create_letter_wheel(word):
 		button.queue_free()
 	letter_buttons.clear()
 
-	# Cria letras embaralhadas
+	# Limpa todos os filhos do letter_wheel para garantir
+	for child in letter_wheel.get_children():
+		child.queue_free()
+
+	# Cria letras embaralhadas - apenas as letras da palavra
 	available_letters = []
 	for letter in word:
 		available_letters.append(letter)
@@ -220,126 +224,124 @@ func create_letter_wheel(word):
 	# Embaralha as letras
 	available_letters.shuffle()
 
+	# Cria um Control como container para os botões
+	var container = Control.new()
+	container.set_anchors_preset(Control.PRESET_FULL_RECT)
+	container.position = Vector2.ZERO
+	container.size = Vector2(400, 400)
+	letter_wheel.add_child(container)
+
 	# Cria botões de letras em círculo
-	var center = Vector2(200, 200)
-	var radius = 120
+	var center = container.size / 2
+	var radius = 80  # Raio menor para aproximar as letras
 	var angle_step = 2 * PI / available_letters.size()
 
 	for i in range(available_letters.size()):
-		var angle = i * angle_step
+		var angle = i * angle_step - PI/2  # Começa do topo (-PI/2)
 		var pos = center + Vector2(cos(angle), sin(angle)) * radius
 
-		var letter_button = create_letter_button(available_letters[i], pos)
-		letter_wheel.add_child(letter_button)
+		# Cria o botão
+		var letter_button = Button.new()
+		letter_button.set_script(load("res://scripts/Minigames/DraggableLetter.gd"))
+		container.add_child(letter_button)
+
+		# Configura o botão
+		letter_button.size = Vector2(65, 65)
+		letter_button.position = pos - letter_button.size/2
+		letter_button.text = available_letters[i]
+		letter_button.clip_contents = false
+		letter_button.mouse_filter = Control.MOUSE_FILTER_STOP
+
+		# Configura a fonte
+		var font_res = load("res://assets/fonts/game_font.tres")
+		if font_res:
+			letter_button.add_theme_font_override("font", font_res)
+			letter_button.add_theme_font_size_override("font_size", 28)
+
+		# Configura o estilo
+		var style = StyleBoxFlat.new()
+		style.bg_color = Color(0.2, 0.6, 1.0)
+		style.corner_radius_top_left = 25
+		style.corner_radius_top_right = 25
+		style.corner_radius_bottom_left = 25
+		style.corner_radius_bottom_right = 25
+		letter_button.add_theme_stylebox_override("normal", style)
+
+		# Inicializa o botão
+		letter_button.setup(available_letters[i], self)
 		letter_buttons.append(letter_button)
 
-func create_letter_button(letter, position):
-	var button = Button.new()
-	button.text = letter
-	button.size = Vector2(50, 50)
-	button.position = position - Vector2(25, 25)  # Centraliza o botão
-
-	var font_res = load("res://assets/fonts/game_font.tres")
-	if font_res:
-		button.add_theme_font_override("font", font_res)
-
-	# Estilo do botão
-	var style = StyleBoxFlat.new()
-	style.bg_color = Color(0.2, 0.6, 1.0)
-	style.corner_radius_top_left = 25
-	style.corner_radius_top_right = 25
-	style.corner_radius_bottom_left = 25
-	style.corner_radius_bottom_right = 25
-	button.add_theme_stylebox_override("normal", style)
-
-	# Conecta sinais para touch/mouse
-	button.gui_input.connect(_on_letter_button_input.bind(button, letter))
-
-	return button
-
-func _on_letter_button_input(event, button, letter):
-	if event is InputEventScreenTouch or event is InputEventMouseButton:
-		if event.pressed:
-			start_letter_selection(button, letter)
-		elif is_selecting:  # Garante que só termina se já estava selecionando
-			end_letter_selection()
-	elif event is InputEventScreenDrag or event is InputEventMouseMotion:
-		if is_selecting and event.button_mask > 0:  # Verifica se botão está pressionado
-			continue_letter_selection(event.position)
+		print("Criado botão para letra: " + available_letters[i] + " na posição: " + str(pos))
 
 func start_letter_selection(button, letter):
-	is_selecting = true
-	selected_letters.clear()
-	add_letter_to_selection(button, letter)
-
-	# Feedback visual e sonoro
-	button.modulate = Color(1.2, 1.2, 0.8)
-
-	# Opcional: tocar som de seleção
+	if not is_selecting:
+		is_selecting = true
+		selected_letters.clear()
+		add_letter_to_selection(button, letter)
+		print("Iniciando seleção com letra: " + letter)
 
 func continue_letter_selection(global_pos):
 	if not is_selecting:
 		return
 
-	# Verifica se está sobre outro botão de letra
-	for i in range(letter_buttons.size()):
-		var button = letter_buttons[i]
-		var rect = Rect2(button.global_position, button.size)
+	# Encontra o botão mais próximo do mouse que ainda não foi selecionado
+	var closest_button = null
+	var closest_distance = 50.0  # Reduzido para melhor precisão
 
-		if rect.has_point(global_pos):
-			var letter = available_letters[i]
+	for button in letter_buttons:
+		if not button in selected_letters.map(func(x): return x.button):
+			var button_center = button.global_position + button.size/2
+			var distance = button_center.distance_to(global_pos)
 
-			# Verifica se este botão já foi selecionado
-			var already_selected = false
-			for selection in selected_letters:
-				if selection.button == button:
-					already_selected = true
-					break
+			if distance < closest_distance:
+				closest_distance = distance
+				closest_button = button
 
-			if not already_selected:
-				add_letter_to_selection(button, letter)
+	if closest_button != null:
+		add_letter_to_selection(closest_button, closest_button.letter)
+		print("Adicionando letra à seleção: " + closest_button.letter)
 
 func add_letter_to_selection(button, letter):
+	# Verifica se o botão já foi selecionado
+	for selected in selected_letters:
+		if selected.button == button:
+			return
+
 	selected_letters.append({
 		"button": button,
 		"letter": letter
 	})
 
-	# Feedback visual
-	button.modulate = Color(1.2, 1.2, 0.8)
+	button.select()
 
-	# Feedback visual do caminho (opcional)
-	if selected_letters.size() >= 2:
-		# Pode-se adicionar uma linha entre os botões aqui
-		pass
+	# Feedback visual e sonoro
+	feedback_label.text = get_current_word()
+	feedback_label.modulate = Color.WHITE
+	feedback_label.visible = true
 
-	# Atualiza a palavra formada na UI
-	update_formed_word()
-
-func update_formed_word():
-	var formed_word = ""
+func get_current_word():
+	var word = ""
 	for item in selected_letters:
-		formed_word += item.letter
-
-	# Pode-se mostrar a palavra sendo formada em uma label
+		word += item.letter
+	return word
 
 func end_letter_selection():
 	if not is_selecting:
 		return
 
 	is_selecting = false
-
-	# Forma a palavra selecionada
-	var formed_word = ""
-	for item in selected_letters:
-		formed_word += item.letter
+	var formed_word = get_current_word()
 
 	# Verifica se está correta
 	check_word_answer(formed_word)
 
-	# Reset visual dos botões
-	for button in letter_buttons:
-		button.modulate = Color.WHITE
+	# Reseta seleção
+	for item in selected_letters:
+		item.button.deselect()
+	selected_letters.clear()
+
+	# Esconde o feedback da palavra formada
+	feedback_label.visible = false
 
 func check_word_answer(formed_word):
 	var current_word = crossword_data.words[current_word_index]

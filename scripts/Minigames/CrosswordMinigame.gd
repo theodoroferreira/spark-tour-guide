@@ -10,6 +10,7 @@ extends "res://scripts/Minigames/MinigameBase.gd"
 @onready var current_word_highlight = $UI/CurrentWordHighlight
 @onready var spark_dialog = $UI/SparkDialog
 @onready var progress_bar = $UI/ProgressBar
+@onready var line_drawer = $UI/LineDrawer
 
 # Dados do crossword
 var crossword_data = null
@@ -52,6 +53,15 @@ var dialog_data = [
 func _ready():
 	# Connect the minigame completion signal to GameManager
 	minigame_completed.connect(GameManager.on_minigame_completed)
+
+	# Inicializa o line drawer
+	if !line_drawer:
+		var line = Line2D.new()
+		line.name = "LineDrawer"
+		line.width = 5
+		line.default_color = Color(0.2, 0.6, 1.0, 0.5)
+		$UI.add_child(line)
+		line_drawer = line
 
 	load_words_from_json()
 	setup_crossword()
@@ -169,7 +179,33 @@ func start_location_dialog():
 
 func setup_next_word():
 	if current_word_index >= crossword_data.words.size():
-		complete_minigame()
+		# Todas as palavras da lista atual foram completadas
+		if completed_count >= total_words:
+			# Remove as palavras já usadas do word_data
+			for word in completed_words:
+				var idx = word_data.find(func(w): return w.word.to_upper() == word.word)
+				if idx != -1:
+					word_data.remove_at(idx)
+
+			# Se ainda houver palavras disponíveis, gera novo crossword
+			if word_data.size() > 0:
+				completed_words.clear()
+				completed_count = 0
+				current_word_index = 0
+				progress_bar.value = 0
+
+				# Limpa o grid atual
+				for child in crossword_grid.get_children():
+					child.queue_free()
+
+				# Configura novo crossword
+				setup_crossword()
+				setup_next_word()
+			else:
+				# Se não houver mais palavras, completa o minigame
+				complete_minigame()
+		else:
+			complete_minigame()
 		return
 
 	var current_word = crossword_data.words[current_word_index]
@@ -314,6 +350,13 @@ func add_letter_to_selection(button, letter):
 
 	button.select()
 
+	# Atualiza a linha de conexão
+	var points = []
+	for item in selected_letters:
+		var btn_pos = item.button.global_position + item.button.size/2
+		points.append(btn_pos)
+	line_drawer.points = points
+
 	# Feedback visual e sonoro
 	feedback_label.text = get_current_word()
 	feedback_label.modulate = Color.WHITE
@@ -339,6 +382,9 @@ func end_letter_selection():
 	for item in selected_letters:
 		item.button.deselect()
 	selected_letters.clear()
+
+	# Limpa a linha de conexão
+	line_drawer.clear_points()
 
 	# Esconde o feedback da palavra formada
 	feedback_label.visible = false
@@ -368,6 +414,7 @@ func fill_word_in_grid(word):
 	var start_row = word.row - 1
 	var start_col = word.col - 1
 
+	# Animação de preenchimento
 	for i in range(word.length):
 		var row = start_row
 		var col = start_col
@@ -382,8 +429,17 @@ func fill_word_in_grid(word):
 
 		if cell.has_method("get_children") and cell.get_child_count() > 0:
 			var letter_label = cell.get_child(0)
-			letter_label.text = word.word[i]
+
+			# Cria uma animação para cada letra
+			var tween = create_tween()
+			tween.tween_property(letter_label, "modulate", Color(0.2, 0.6, 1.0, 0), 0.2)
+			tween.tween_callback(func(): letter_label.text = word.word[i])
+			tween.tween_property(letter_label, "modulate", Color(0.2, 0.6, 1.0, 1), 0.3)
+
 			cell.set_meta("revealed", true)
+
+			# Pequeno delay entre cada letra
+			await get_tree().create_timer(0.1).timeout
 
 func show_positive_feedback():
 	var messages = ["Nice!", "Super Cool!", "Parabéns!", "Muito bem!", "Excellent!"]

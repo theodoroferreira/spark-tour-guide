@@ -18,7 +18,7 @@ stretch_mode = 6
 position = Vector2(122, 94)
 
 [node name="LetterWheel" type="Node2D" parent="."]
-position = Vector2(600, 300)
+position = Vector2(850, 350)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

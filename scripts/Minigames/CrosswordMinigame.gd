@@ -267,9 +267,17 @@ func create_letter_wheel(word):
 	container.size = Vector2(400, 400)
 	letter_wheel.add_child(container)
 
-	# Cria botões de letras em círculo
-	var center = container.size / 2
-	var radius = 80  # Raio menor para aproximar as letras
+	# Ajusta o raio do círculo baseado no tamanho da palavra
+	var base_radius = 60  # Raio base para palavras curtas
+	var radius = base_radius + (available_letters.size() * 5)  # Aumenta o raio para palavras maiores
+
+	# Ajusta o tamanho dos botões baseado no tamanho da palavra
+	var base_button_size = 65  # Tamanho base para palavras curtas
+	var button_size = max(45, base_button_size - (available_letters.size() * 2))  # Diminui o tamanho para palavras maiores
+
+	# Ajusta a posição do círculo mais para a esquerda e para cima
+	var center = Vector2(container.size.x * 0.3, container.size.y * 0.4)  # Ajusta para 30% da largura e 40% da altura
+
 	var angle_step = 2 * PI / available_letters.size()
 
 	for i in range(available_letters.size()):
@@ -282,7 +290,7 @@ func create_letter_wheel(word):
 		container.add_child(letter_button)
 
 		# Configura o botão
-		letter_button.size = Vector2(65, 65)
+		letter_button.size = Vector2(button_size, button_size)
 		letter_button.position = pos - letter_button.size/2
 		letter_button.text = available_letters[i]
 		letter_button.clip_contents = false
@@ -292,15 +300,17 @@ func create_letter_wheel(word):
 		var font_res = load("res://assets/fonts/game_font.tres")
 		if font_res:
 			letter_button.add_theme_font_override("font", font_res)
-			letter_button.add_theme_font_size_override("font_size", 28)
+			# Ajusta o tamanho da fonte baseado no tamanho do botão
+			var font_size = max(20, 28 - (available_letters.size() * 1))
+			letter_button.add_theme_font_size_override("font_size", font_size)
 
 		# Configura o estilo
 		var style = StyleBoxFlat.new()
 		style.bg_color = Color(0.2, 0.6, 1.0)
-		style.corner_radius_top_left = 25
-		style.corner_radius_top_right = 25
-		style.corner_radius_bottom_left = 25
-		style.corner_radius_bottom_right = 25
+		style.corner_radius_top_left = button_size/2
+		style.corner_radius_top_right = button_size/2
+		style.corner_radius_bottom_left = button_size/2
+		style.corner_radius_bottom_right = button_size/2
 		letter_button.add_theme_stylebox_override("normal", style)
 
 		# Inicializa o botão
@@ -417,6 +427,16 @@ func fill_word_in_grid(word):
 	# Animação de preenchimento
 	for i in range(word.length):
 		var row = start_row
+
+
+
+
+
+
+
+
+
+
 		var col = start_col
 
 		if word.vertical:

@@ -16,9 +16,6 @@ func _ready():
 	set_process_input(true)
 	set_process_unhandled_input(true)
 
-	# Define o tamanho mínimo do botão
-	custom_minimum_size = Vector2(65, 65)
-
 func setup(letter_text, minigame):
 	text = letter_text
 	letter = letter_text
@@ -43,10 +40,10 @@ func setup(letter_text, minigame):
 	# Configura estilo visual do botão
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color(0.2, 0.6, 1.0)
-	style.corner_radius_top_left = 25
-	style.corner_radius_top_right = 25
-	style.corner_radius_bottom_left = 25
-	style.corner_radius_bottom_right = 25
+	style.corner_radius_top_left = size.x/2
+	style.corner_radius_top_right = size.x/2
+	style.corner_radius_bottom_left = size.x/2
+	style.corner_radius_bottom_right = size.x/2
 	add_theme_stylebox_override("normal", style)
 
 	print("Setup concluído para letra: " + letter + " - Botão clicável: " + str(mouse_filter == Control.MOUSE_FILTER_STOP))
@@ -132,9 +129,13 @@ func select():
 		style.bg_color = Color(1.0, 0.8, 0.0)
 		add_theme_stylebox_override("normal", style)
 
-	# Animação de seleção
+	# Animação de seleção - ajustada para ser mais sutil com botões menores
+	var scale_factor = 1.1
+	if size.x < 50:  # Para botões menores, reduz a escala da animação
+		scale_factor = 1.05
+
 	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.1)
+	tween.tween_property(self, "scale", Vector2(scale_factor, scale_factor), 0.1)
 
 func deselect():
 	if not is_selected:
@@ -146,10 +147,10 @@ func deselect():
 	# Restaura estilo original
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color(0.2, 0.6, 1.0)
-	style.corner_radius_top_left = 25
-	style.corner_radius_top_right = 25
-	style.corner_radius_bottom_left = 25
-	style.corner_radius_bottom_right = 25
+	style.corner_radius_top_left = size.x/2
+	style.corner_radius_top_right = size.x/2
+	style.corner_radius_bottom_left = size.x/2
+	style.corner_radius_bottom_right = size.x/2
 	add_theme_stylebox_override("normal", style)
 
 	# Animação de deseleção

@@ -21,6 +21,10 @@ func _ready():
 	# Conecta o evento de clique no quadro
 	quadro_clickable.pressed.connect(_on_quadro_clicked)
 	$ReturnButton.pressed.connect(_on_return_button_clicked)
+	
+	# Conecta os eventos de hover do quadro
+	quadro_clickable.mouse_entered.connect(_on_quadro_mouse_entered)
+	quadro_clickable.mouse_exited.connect(_on_quadro_mouse_exited)
 
 	# Conecta o botão para retornar ao Home
 	if has_node("HomeButton"):
@@ -59,3 +63,24 @@ func _on_home_button_clicked():
 
 	# Atualiza o estado no GameManager
 	GameManager.current_location = "Home"
+
+func _on_quadro_mouse_entered():
+	var tween = create_tween()
+	tween.tween_property(quadro_clickable, "modulate", Color(1.2, 1.2, 1.2), 0.2)
+	
+	# Adiciona uma borda sutil
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0, 0, 0, 0)
+	style.border_color = Color(1, 1, 1, 0.8)
+	style.border_width_left = 2
+	style.border_width_top = 2
+	style.border_width_right = 2
+	style.border_width_bottom = 2
+	quadro_clickable.add_theme_stylebox_override("hover", style)
+
+func _on_quadro_mouse_exited():
+	var tween = create_tween()
+	tween.tween_property(quadro_clickable, "modulate", Color(1, 1, 1), 0.2)
+	
+	# Remove a borda
+	quadro_clickable.remove_theme_stylebox_override("hover")

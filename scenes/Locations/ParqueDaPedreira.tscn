@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Locations/ParqueDaPedreira.gd" id="1_pedreira"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/parque_da_pedreira.png" id="2_pedreira_bg"]
+
+[node name="ParqueDaPedreira" type="Node2D"]
+script = ExtResource("1_pedreira")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_pedreira_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HomeButton" type="Button" parent="."]
+offset_left = 1000.0
+offset_top = 550.0
+offset_right = 1100.0
+offset_bottom = 600.0
+text = "Home" 

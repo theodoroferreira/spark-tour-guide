@@ -23,6 +23,8 @@ func _ready():
 	$LocationSigns/TrainStationSign.pressed.connect(_on_train_station_sign_pressed)
 	# Connect Crossword sign to load the crossword minigame
 	$LocationSigns/CrosswordSign.pressed.connect(_on_crossword_sign_pressed)
+	# Connect Pedreira sign to load the new location
+	$LocationSigns/PedreiraSign.pressed.connect(_on_pedreira_sign_pressed)
 
 func start_intro_dialog():
 	var dialog_box = $UI/DialogBox
@@ -66,3 +68,8 @@ func _on_crossword_sign_pressed():
 
 	# Atualiza o estado no GameManager para referência
 	GameManager.current_location = "Biblioteca"
+
+func _on_pedreira_sign_pressed():
+	print("Clicou em Parque da Pedreira, carregando cena...")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/ParqueDaPedreira.tscn")
+	GameManager.current_location = "ParqueDaPedreira"

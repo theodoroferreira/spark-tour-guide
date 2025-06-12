@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1sv61p2hhuq6"
-path="res://.godot/imported/parque_da_pedreira.png-d1439226c86e45e5fce4c5174025f69d.ctex"
+uid="uid://eymd3nkayxr8"
+path="res://.godot/imported/caminho_museu.png-334a374cb8ed2479a350dea73c55b6ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/parque_da_pedreira.png"
-dest_files=["res://.godot/imported/parque_da_pedreira.png-d1439226c86e45e5fce4c5174025f69d.ctex"]
+source_file="res://assets/backgrounds/caminho_museu.png"
+dest_files=["res://.godot/imported/caminho_museu.png-334a374cb8ed2479a350dea73c55b6ef.ctex"]
 
 [params]
 

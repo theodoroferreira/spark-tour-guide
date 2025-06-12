@@ -39,10 +39,10 @@ offset_bottom = 267.0
 text = "Biblioteca"
 
 [node name="PedreiraSign" type="Button" parent="LocationSigns" groups=["location_signs"]]
-offset_left = 930.0
-offset_top = 136.0
-offset_right = 1080.0
-offset_bottom = 186.0
+offset_left = 270.0
+offset_top = 390.0
+offset_right = 420.0
+offset_bottom = 440.0
 text = "Parque da Pedreira"
 
 [node name="Stick" type="Sprite2D" parent="."]

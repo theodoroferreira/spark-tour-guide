@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/backgrounds/deck_game.png" id="1_deck_bg"]
+[ext_resource type="Script" path="res://scripts/Locations/DeckGame.gd" id="2_deck_script"]
+
+[node name="DeckGame" type="Node2D"]
+script = ExtResource("2_deck_script")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_deck_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HomeButton" type="Button" parent="."]
+offset_left = 476.0
+offset_top = 570.0
+offset_right = 676.0
+offset_bottom = 620.0
+text = "Parque da Pedreira" 

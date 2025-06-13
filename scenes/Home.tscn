@@ -25,24 +25,24 @@ navigation_polygon = SubResource("NavigationPolygon_oir2t")
 [node name="LocationSigns" type="Node2D" parent="."]
 
 [node name="TrainStationSign" type="Button" parent="LocationSigns" groups=["location_signs"]]
-offset_left = 755.0
-offset_top = 136.0
-offset_right = 863.0
-offset_bottom = 186.0
+offset_left = 791.0
+offset_top = 159.0
+offset_right = 899.0
+offset_bottom = 209.0
 text = "Train Station"
 
 [node name="CrosswordSign" type="Button" parent="LocationSigns" groups=["location_signs"]]
-offset_left = 811.0
-offset_top = 217.0
-offset_right = 911.0
-offset_bottom = 267.0
+offset_left = 775.0
+offset_top = 304.0
+offset_right = 875.0
+offset_bottom = 354.0
 text = "Biblioteca"
 
 [node name="MuseuSign" type="Button" parent="LocationSigns" groups=["location_signs"]]
-offset_left = 270.0
-offset_top = 320.0
-offset_right = 420.0
-offset_bottom = 370.0
+offset_left = 165.0
+offset_top = 500.0
+offset_right = 286.0
+offset_bottom = 557.0
 text = "Museu"
 
 [node name="Stick" type="Sprite2D" parent="."]
@@ -60,11 +60,11 @@ position = Vector2(622, 90)
 texture = ExtResource("4_72wqp")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="DialogBox" parent="UI" instance=ExtResource("3_osgcs")]
 
 [node name="TitleLabel" type="Label" parent="UI"]
-visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

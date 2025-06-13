@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://1kimqvh8t8s3"]
+
+[ext_resource type="Texture2D" uid="uid://uu1pijji6ck2" path="res://assets/backgrounds/dentro_do_museu.png" id="1"]
+[ext_resource type="Script" uid="uid://c61nrss7mxspd" path="res://scripts/Locations/DentroDoMuseu.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://befaqmhhxybni" path="res://assets/backgrounds/b.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d13pre00d4q43" path="res://assets/backgrounds/b2.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://vlhl812c7nml" path="res://assets/backgrounds/b3.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dyepaukk3dxnx" path="res://assets/backgrounds/b4.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bqf0n5851c30d" path="res://assets/backgrounds/b5.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://b21qc85uy7gok" path="res://assets/backgrounds/b6.png" id="8"]
+[ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="9_yhk4f"]
+
+[node name="DentroDoMuseu" type="Node2D"]
+script = ExtResource("2")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VoltarButton" type="Button" parent="."]
+offset_left = 1000.0
+offset_top = 570.0
+offset_right = 1100.0
+offset_bottom = 620.0
+text = "Voltar"
+
+[node name="ButtonsContainer" type="Node2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Button1" type="TextureButton" parent="ButtonsContainer"]
+offset_left = -473.0
+offset_top = -289.0
+offset_right = -113.0
+offset_bottom = 71.0
+texture_normal = ExtResource("3")
+
+[node name="Button2" type="TextureButton" parent="ButtonsContainer"]
+offset_left = -164.0
+offset_top = -308.0
+offset_right = 196.0
+offset_bottom = 52.0
+texture_normal = ExtResource("4")
+
+[node name="Button3" type="TextureButton" parent="ButtonsContainer"]
+offset_left = 142.0
+offset_top = -307.0
+offset_right = 502.0
+offset_bottom = 53.0
+texture_normal = ExtResource("5")
+
+[node name="Button4" type="TextureButton" parent="ButtonsContainer"]
+offset_left = -487.0
+offset_top = -11.0
+offset_right = -127.0
+offset_bottom = 349.0
+texture_normal = ExtResource("6")
+
+[node name="Button5" type="TextureButton" parent="ButtonsContainer"]
+offset_left = -170.0
+offset_top = -14.0
+offset_right = 190.0
+offset_bottom = 346.0
+texture_normal = ExtResource("7")
+
+[node name="Button6" type="TextureButton" parent="ButtonsContainer"]
+offset_left = 123.0
+offset_top = -12.0
+offset_right = 483.0
+offset_bottom = 348.0
+texture_normal = ExtResource("8")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DialogBox" parent="UI" instance=ExtResource("9_yhk4f")]
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="UI"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -186.0
+offset_top = 30.0
+offset_right = 159.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Spark's Tour Guide"
+horizontal_alignment = 1

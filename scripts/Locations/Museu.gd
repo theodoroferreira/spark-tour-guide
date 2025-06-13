@@ -11,5 +11,5 @@ func _on_voltar_button_pressed():
 	GameManager.current_location = "CaminhoMuseu"
 
 func _on_entrar_button_pressed():
-	print("Entrar no museu!")
-	# Aqui você pode colocar a lógica para entrar no museu de verdade 
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/DentroDoMuseu.tscn")
+	GameManager.current_location = "DentroDoMuseu"

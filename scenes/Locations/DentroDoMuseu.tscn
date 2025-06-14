@@ -14,71 +14,81 @@
 script = ExtResource("2")
 
 [node name="Background" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1542.0
+offset_bottom = 1037.0
 texture = ExtResource("1")
 expand_mode = 1
 stretch_mode = 6
 
 [node name="VoltarButton" type="Button" parent="."]
-offset_left = 1000.0
-offset_top = 570.0
-offset_right = 1100.0
-offset_bottom = 620.0
+offset_left = 1407.0
+offset_top = 942.0
+offset_right = 1507.0
+offset_bottom = 992.0
 text = "Voltar"
 
 [node name="ButtonsContainer" type="Node2D" parent="."]
 position = Vector2(576, 324)
 
 [node name="Button1" type="TextureButton" parent="ButtonsContainer"]
-offset_left = -473.0
-offset_top = -289.0
-offset_right = -113.0
-offset_bottom = 71.0
+offset_left = -566.0
+offset_top = -244.0
+offset_right = 34.0
+offset_bottom = 356.0
+scale = Vector2(0.65, 0.65)
 texture_normal = ExtResource("3")
 
 [node name="Button2" type="TextureButton" parent="ButtonsContainer"]
-offset_left = -164.0
-offset_top = -308.0
-offset_right = 196.0
-offset_bottom = 52.0
+offset_left = -28.0
+offset_top = -240.0
+offset_right = 572.0
+offset_bottom = 360.0
+scale = Vector2(0.65, 0.65)
 texture_normal = ExtResource("4")
 
 [node name="Button3" type="TextureButton" parent="ButtonsContainer"]
-offset_left = 142.0
-offset_top = -307.0
-offset_right = 502.0
-offset_bottom = 53.0
+offset_left = 492.0
+offset_top = -236.0
+offset_right = 1092.0
+offset_bottom = 364.0
+scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("5")
 
 [node name="Button4" type="TextureButton" parent="ButtonsContainer"]
-offset_left = -487.0
-offset_top = -11.0
-offset_right = -127.0
-offset_bottom = 349.0
+offset_left = -573.0
+offset_top = 233.0
+offset_right = 27.0
+offset_bottom = 833.0
+scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("6")
 
 [node name="Button5" type="TextureButton" parent="ButtonsContainer"]
-offset_left = -170.0
-offset_top = -14.0
-offset_right = 190.0
-offset_bottom = 346.0
+offset_left = -10.0
+offset_top = 236.0
+offset_right = 590.0
+offset_bottom = 836.0
+scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("7")
+stretch_mode = 0
 
 [node name="Button6" type="TextureButton" parent="ButtonsContainer"]
-offset_left = 123.0
-offset_top = -12.0
-offset_right = 483.0
-offset_bottom = 348.0
+offset_left = 504.0
+offset_top = 170.0
+offset_right = 1104.0
+offset_bottom = 770.0
+scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("8")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="DialogBox" parent="UI" instance=ExtResource("9_yhk4f")]
+offset_left = -2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 2.0
 mouse_filter = 2
 
 [node name="TitleLabel" type="Label" parent="UI"]
-visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

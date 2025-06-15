@@ -32,8 +32,8 @@ func start_intro_dialog():
 
 func _on_location_sign_pressed(location_name, minigame_name, target_position):
 	# Disable all signs while moving
-	for sign in get_tree().get_nodes_in_group("location_signs"):
-		sign.disabled = true
+	for location_sign in get_tree().get_nodes_in_group("location_signs"):
+		location_sign.disabled = true
 
 	player.move_to(target_position)
 	await player.destination_reached

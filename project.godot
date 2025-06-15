@@ -18,6 +18,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://autoload/GameManager.gd"
+ScreenManager="*res://autoload/ScreenManager.gd"
+
+[display]
+
+window/size/viewport_width=1536
+window/size/viewport_height=1024
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
+window/size/width=1366
+window/size/height=768
 
 [rendering]
 

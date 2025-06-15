@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b33t81wdnlndr"]
 
 [ext_resource type="Script" uid="uid://cdro1dmc4t3gy" path="res://scripts/Home.gd" id="1_p2yb4"]
-[ext_resource type="Texture2D" uid="uid://bw8uq518dy65p" path="res://assets/backgrounds/inicio.png" id="2_72wqp"]
+[ext_resource type="Texture2D" uid="uid://4xjwu3x6qceh" path="res://assets/backgrounds/inicio.png" id="2_72wqp"]
 [ext_resource type="PackedScene" uid="uid://d2e8pvefg1rge" path="res://scenes/Player.tscn" id="2_yrnev"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_osgcs"]
 [ext_resource type="Texture2D" uid="uid://c3dsopkdh6lkl" path="res://assets/ui/stick.png" id="3_yk4sq"]
@@ -12,11 +12,25 @@
 [node name="Home" type="Node2D"]
 script = ExtResource("1_p2yb4")
 
-[node name="Background" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="Control" groups=["background"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -18.0
+offset_right = 1499.0
+offset_bottom = 982.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_72wqp")
-expand_mode = 1
+expand_mode = 3
 stretch_mode = 6
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -24,26 +38,26 @@ navigation_polygon = SubResource("NavigationPolygon_oir2t")
 
 [node name="LocationSigns" type="Node2D" parent="."]
 
-[node name="TrainStationSign" type="Button" parent="LocationSigns" groups=["location_signs"]]
-offset_left = 755.0
-offset_top = 136.0
-offset_right = 863.0
-offset_bottom = 186.0
+[node name="TrainStationSign" type="Button" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
+offset_left = 978.0
+offset_top = 336.0
+offset_right = 1086.0
+offset_bottom = 386.0
 text = "Train Station"
 
-[node name="CrosswordSign" type="Button" parent="LocationSigns" groups=["location_signs"]]
-offset_left = 811.0
-offset_top = 217.0
-offset_right = 911.0
-offset_bottom = 267.0
+[node name="CrosswordSign" type="Button" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
+offset_left = 923.0
+offset_top = 628.0
+offset_right = 1044.0
+offset_bottom = 692.0
 text = "Biblioteca"
 
-[node name="SolteVerboSign" type="Button" parent="LocationSigns" groups=["location_signs"]]
-offset_left = 755.0
-offset_top = 298.0
-offset_right = 911.0
-offset_bottom = 348.0
-text = "Solte o Verbo"
+[node name="MuseuSign" type="Button" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
+offset_left = 216.0
+offset_top = 720.0
+offset_right = 337.0
+offset_bottom = 777.0
+text = "Museu"
 
 [node name="Stick" type="Sprite2D" parent="."]
 visible = false
@@ -52,19 +66,19 @@ scale = Vector2(0.66129, 0.66129)
 texture = ExtResource("3_yk4sq")
 
 [node name="Player" parent="." instance=ExtResource("2_yrnev")]
-position = Vector2(427, 169)
+position = Vector2(503, 293)
 scale = Vector2(0.5, 0.5)
 
 [node name="Spark" type="Sprite2D" parent="."]
-position = Vector2(622, 90)
+position = Vector2(784, 197)
 texture = ExtResource("4_72wqp")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="DialogBox" parent="UI" instance=ExtResource("3_osgcs")]
 
-[node name="TitleLabel" type="Label" parent="UI"]
-visible = false
+[node name="TitleLabel" type="Label" parent="UI" groups=["scalable_ui"]]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

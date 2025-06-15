@@ -9,15 +9,33 @@ signal dialog_ended
 
 var dialog_queue = []
 var is_dialog_active = false
+var is_animating = false
+var input_enabled = false
 
 func _ready():
 	hide()
+
+func reset():
+	dialog_queue.clear()
+	hide()
+	is_dialog_active = false
+	is_animating = false
+	input_enabled = false
+	animation_player.stop()
 
 func start_dialog(dialog_data):
 	dialog_queue = dialog_data
 	show()
 	is_dialog_active = true
+	is_animating = false
+	input_enabled = false
+	# Set Portrait2 texture
+	if has_node("Panel/Portrait2"):
+		$Panel/Portrait2.texture = load("res://assets/backgrounds/spark_face_dft_1.png")
 	display_next_dialog()
+	await get_tree().process_frame
+	await get_tree().process_frame # aguarda 2 frames pra garantir que o input anterior passou
+	input_enabled = true
 
 func display_next_dialog():
 	if dialog_queue.size() == 0:
@@ -34,19 +52,32 @@ func display_next_dialog():
 		else:
 			portrait.texture = null
 	
+	text_label.visible_ratio = 0
+	is_animating = true
 	animation_player.play("text_appear")
+	await animation_player.animation_finished
+	is_animating = false
 
 func end_dialog():
+	if not is_dialog_active:
+		return
+	print("Escondendo dialog box")
 	is_dialog_active = false
+	is_animating = true
 	animation_player.play("fade_out")
 	await animation_player.animation_finished
+	is_animating = false
 	hide()
 	emit_signal("dialog_ended")
 
 func _input(event):
-	if is_dialog_active and event.is_action_pressed("ui_accept"):
-		if animation_player.is_playing():
+	if not is_dialog_active or not input_enabled:
+		return
+
+	if event.is_action_pressed("ui_accept"):
+		if is_animating:
 			animation_player.stop()
 			text_label.visible_ratio = 1.0
+			is_animating = false
 		else:
 			display_next_dialog()

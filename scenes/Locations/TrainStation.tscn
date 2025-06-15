@@ -10,8 +10,8 @@
 script = ExtResource("1_8lcs3")
 
 [node name="Background" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1543.0
+offset_bottom = 1029.0
 texture = ExtResource("2_k6u8y")
 expand_mode = 1
 stretch_mode = 6
@@ -19,30 +19,17 @@ stretch_mode = 6
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_isgb7")]
-visible = false
-position = Vector2(576, 400)
+position = Vector2(451, 723)
+scale = Vector2(0.8, 0.8)
 
 [node name="Spark" type="Sprite2D" parent="."]
-position = Vector2(370, 504)
+visible = false
+position = Vector2(454, 838)
 texture = ExtResource("4_517pj")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="DialogBox" parent="UI" instance=ExtResource("3_v5e7i")]
-
-[node name="LocationLabel" type="Label" parent="UI"]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -172.5
-offset_top = 20.0
-offset_right = 172.5
-offset_bottom = 61.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 28
-text = "Train Station"
-horizontal_alignment = 1
 
 [node name="HomeButton" type="Button" parent="UI"]
 anchors_preset = 1

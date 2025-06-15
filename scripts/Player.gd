@@ -14,7 +14,7 @@ func _ready():
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 4.0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_moving:
 		var next_path_position = navigation_agent.get_next_path_position()
 		var direction = global_position.direction_to(next_path_position)

@@ -1,0 +1,125 @@
+[gd_scene load_steps=10 format=3 uid="uid://1kimqvh8t8s3"]
+
+[ext_resource type="Texture2D" uid="uid://uu1pijji6ck2" path="res://assets/backgrounds/dentro_do_museu.png" id="1"]
+[ext_resource type="Script" uid="uid://c61nrss7mxspd" path="res://scripts/Locations/DentroDoMuseu.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://befaqmhhxybni" path="res://assets/backgrounds/b.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d13pre00d4q43" path="res://assets/backgrounds/b2.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://vlhl812c7nml" path="res://assets/backgrounds/b3.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dyepaukk3dxnx" path="res://assets/backgrounds/b4.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bqf0n5851c30d" path="res://assets/backgrounds/b5.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://b21qc85uy7gok" path="res://assets/backgrounds/b6.png" id="8"]
+[ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="9_yhk4f"]
+
+[node name="DentroDoMuseu" type="Node2D"]
+script = ExtResource("2")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1542.0
+offset_bottom = 1037.0
+texture = ExtResource("1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VoltarButton" type="Button" parent="."]
+offset_left = 1407.0
+offset_top = 942.0
+offset_right = 1507.0
+offset_bottom = 992.0
+text = "Voltar"
+
+[node name="ButtonsContainer" type="Node2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Button1" type="TextureButton" parent="ButtonsContainer"]
+offset_left = -566.0
+offset_top = -244.0
+offset_right = 34.0
+offset_bottom = 356.0
+scale = Vector2(0.65, 0.65)
+texture_normal = ExtResource("3")
+
+[node name="Button2" type="TextureButton" parent="ButtonsContainer"]
+offset_left = -28.0
+offset_top = -240.0
+offset_right = 572.0
+offset_bottom = 360.0
+scale = Vector2(0.65, 0.65)
+texture_normal = ExtResource("4")
+
+[node name="Button3" type="TextureButton" parent="ButtonsContainer"]
+offset_left = 492.0
+offset_top = -236.0
+offset_right = 1092.0
+offset_bottom = 364.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("5")
+
+[node name="Button4" type="TextureButton" parent="ButtonsContainer"]
+offset_left = -573.0
+offset_top = 233.0
+offset_right = 27.0
+offset_bottom = 833.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("6")
+
+[node name="Button5" type="TextureButton" parent="ButtonsContainer"]
+offset_left = -10.0
+offset_top = 236.0
+offset_right = 590.0
+offset_bottom = 836.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("7")
+stretch_mode = 0
+
+[node name="Button6" type="TextureButton" parent="ButtonsContainer"]
+offset_left = 504.0
+offset_top = 170.0
+offset_right = 1104.0
+offset_bottom = 770.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("8")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TextLabel" type="Label" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 212.0
+offset_top = 899.0
+offset_right = -78.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "This is sample dialog text. Press Space to continue."
+autowrap_mode = 1
+justification_flags = 131
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="DialogBox" parent="UI" instance=ExtResource("9_yhk4f")]
+
+[node name="NextIndicator" type="Label" parent="UI/DialogBox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -33.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+text = ">"
+
+[node name="NameLabel" type="Label" parent="UI/DialogBox"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 862.0
+offset_right = 382.0
+offset_bottom = 888.0
+theme_override_font_sizes/font_size = 18
+text = "Spark"

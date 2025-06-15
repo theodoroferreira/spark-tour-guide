@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc8xojh3qhy6h"]
+
+[ext_resource type="Texture2D" uid="uid://eymd3nkayxr8" path="res://assets/backgrounds/caminho_museu.png" id="1_museu_caminho_bg"]
+[ext_resource type="Script" uid="uid://blu3oathcm54j" path="res://scripts/Locations/CaminhoMuseu.gd" id="2_caminho_museu_script"]
+
+[node name="CaminhoMuseu" type="Node2D"]
+script = ExtResource("2_caminho_museu_script")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1541.0
+offset_bottom = 1031.0
+texture = ExtResource("1_museu_caminho_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VoltarButton" type="Button" parent="."]
+offset_left = 858.0
+offset_top = 927.0
+offset_right = 1058.0
+offset_bottom = 977.0
+text = "Voltar"
+
+[node name="MuseuButton" type="Button" parent="."]
+offset_left = 768.0
+offset_top = 514.0
+offset_right = 879.0
+offset_bottom = 564.0
+text = "Museu"

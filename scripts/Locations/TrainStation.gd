@@ -43,4 +43,6 @@ func start_location_dialog():
 	#GameManager.load_home_scene()
 #
 func _on_home_button_pressed():
-	GameManager.load_home_scene()
+	print("Botão Home clicado!")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/Home.tscn")
+	GameManager.current_location = "Home"

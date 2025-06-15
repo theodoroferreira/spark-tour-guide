@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4xjwu3x6qceh"
-path="res://.godot/imported/inicio.png-2ab5dfe52abb9d43d39fd7e55bed1c7b.ctex"
+uid="uid://eymd3nkayxr8"
+path="res://.godot/imported/caminho_museu.png-334a374cb8ed2479a350dea73c55b6ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/inicio.png"
-dest_files=["res://.godot/imported/inicio.png-2ab5dfe52abb9d43d39fd7e55bed1c7b.ctex"]
+source_file="res://assets/backgrounds/caminho_museu.png"
+dest_files=["res://.godot/imported/caminho_museu.png-334a374cb8ed2479a350dea73c55b6ef.ctex"]
 
 [params]
 

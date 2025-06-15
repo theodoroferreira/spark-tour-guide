@@ -11,6 +11,7 @@ extends "res://scripts/Minigames/MinigameBase.gd"
 @onready var spark_dialog = $UI/SparkDialog
 @onready var progress_bar = $UI/ProgressBar
 @onready var line_drawer = $UI/LineDrawer
+@onready var pause_button = $UI/PauseButton
 
 # Dados do crossword
 var crossword_data = null
@@ -28,6 +29,7 @@ var letter_buttons = []
 # Controle do jogo
 var total_words = 0
 var completed_count = 0
+var is_paused = false
 
 # Carrega palavras do JSON
 var word_data = []
@@ -48,11 +50,14 @@ var dialog_data = [
 		"text": "Vamos começar!",
 		"portrait": "res://assets/characters/spark_reborn_face.png"
 	}
-	]
+]
 
 func _ready():
 	# Connect the minigame completion signal to GameManager
 	minigame_completed.connect(GameManager.on_minigame_completed)
+
+	# Conecta o botão de pausa
+	pause_button.pressed.connect(_on_pause_button_pressed)
 
 	# Inicializa o line drawer
 	if !line_drawer:
@@ -67,6 +72,77 @@ func _ready():
 	setup_crossword()
 	setup_ui()
 	start_minigame()
+
+func _on_pause_button_pressed():
+	is_paused = !is_paused
+	if is_paused:
+		pause_button.text = "Continuar"
+		show_pause_menu()
+	else:
+		pause_button.text = "Pausar"
+		hide_pause_menu()
+
+func show_pause_menu():
+	# Cria um painel de pausa
+	var pause_panel = Panel.new()
+	pause_panel.name = "PausePanel"
+	pause_panel.size = Vector2(400, 300)
+	pause_panel.position = Vector2(376, 174)
+	
+	var vbox = VBoxContainer.new()
+	vbox.position = Vector2(50, 50)
+	vbox.size = Vector2(300, 200)
+	
+	var title = Label.new()
+	title.text = "Jogo Pausado"
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size", 24)
+	
+	var continue_button = Button.new()
+	continue_button.text = "Continuar"
+	continue_button.pressed.connect(_on_pause_button_pressed)
+	
+	var restart_button = Button.new()
+	restart_button.text = "Reiniciar"
+	restart_button.pressed.connect(_on_restart_button_pressed)
+	
+	var quit_button = Button.new()
+	quit_button.text = "Sair"
+	quit_button.pressed.connect(_on_quit_button_pressed)
+	
+	vbox.add_child(title)
+	vbox.add_child(continue_button)
+	vbox.add_child(restart_button)
+	vbox.add_child(quit_button)
+	
+	pause_panel.add_child(vbox)
+	$UI.add_child(pause_panel)
+
+func hide_pause_menu():
+	if has_node("UI/PausePanel"):
+		$UI/PausePanel.queue_free()
+
+func _on_restart_button_pressed():
+	# Limpa o grid atual
+	for child in crossword_grid.get_children():
+		child.queue_free()
+	
+	# Reseta variáveis
+	completed_words.clear()
+	completed_count = 0
+	current_word_index = 0
+	progress_bar.value = 0
+	
+	# Configura novo crossword
+	setup_crossword()
+	setup_next_word()
+	
+	# Fecha o menu de pausa
+	_on_pause_button_pressed()
+
+func _on_quit_button_pressed():
+	# Volta para a tela inicial do crossword
+	get_tree().change_scene_to_file("res://scenes/Locations/BibliotecaQuadro.tscn")
 
 func load_words_from_json():
 	var file_path = "res://assets/data/words.json"
@@ -427,16 +503,6 @@ func fill_word_in_grid(word):
 	# Animação de preenchimento
 	for i in range(word.length):
 		var row = start_row
-
-
-
-
-
-
-
-
-
-
 		var col = start_col
 
 		if word.vertical:

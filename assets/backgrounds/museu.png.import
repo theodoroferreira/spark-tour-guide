@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4xjwu3x6qceh"
-path="res://.godot/imported/inicio.png-2ab5dfe52abb9d43d39fd7e55bed1c7b.ctex"
+uid="uid://de3oi44klioeg"
+path="res://.godot/imported/museu.png-f5a8c63edfa6e4ab417279dd37d6674c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/inicio.png"
-dest_files=["res://.godot/imported/inicio.png-2ab5dfe52abb9d43d39fd7e55bed1c7b.ctex"]
+source_file="res://assets/backgrounds/museu.png"
+dest_files=["res://.godot/imported/museu.png-f5a8c63edfa6e4ab417279dd37d6674c.ctex"]
 
 [params]
 

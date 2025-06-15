@@ -38,6 +38,13 @@ offset_right = 911.0
 offset_bottom = 267.0
 text = "Biblioteca"
 
+[node name="SolteVerboSign" type="Button" parent="LocationSigns" groups=["location_signs"]]
+offset_left = 755.0
+offset_top = 298.0
+offset_right = 911.0
+offset_bottom = 348.0
+text = "Solte o Verbo"
+
 [node name="Stick" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(453, 485)

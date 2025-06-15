@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6x8v0j6y5n3q"]
+
+[ext_resource type="Script" path="res://scripts/solte_verbo.gd" id="1_2k4m3"]
+[ext_resource type="Texture2D" uid="uid://c8q6y4n2m1p0x" path="res://assets/backgrounds/estadio.jpg" id="2_3k4m3"]
+
+[node name="SolteVerbo" type="Node2D"]
+script = ExtResource("1_2k4m3")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_3k4m3")
+
+[node name="JogarButton" type="Button" parent="."]
+offset_left = 438.0
+offset_top = 274.0
+offset_right = 714.0
+offset_bottom = 374.0
+theme_override_font_sizes/font_size = 32
+text = "Jogar"
+
+[node name="HomeButton" type="Button" parent="."]
+offset_left = 1000.0
+offset_top = 550.0
+offset_right = 1100.0
+offset_bottom = 600.0
+text = "Home"
+
+[connection signal="pressed" from="JogarButton" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]

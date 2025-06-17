@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4bk84u6mjyha"]
+[gd_scene load_steps=5 format=3 uid="uid://c4bk84u6mjyha"]
 
 [ext_resource type="Script" uid="uid://cdp6ywx1i1l2b" path="res://scripts/Minigames/CrosswordMinigame.gd" id="1_4g2d3"]
 [ext_resource type="Texture2D" uid="uid://pk42lcy4f41a" path="res://assets/backgrounds/biblioteca_quadro.png" id="2_c0oe6"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_3435x"]
+[ext_resource type="FontFile" uid="uid://57o2d1alcp8r" path="res://assets/font/Chalk Board - A Handmade Chalk Font/2. TTF/Chalk Board.ttf" id="3_n1y0k"]
 
 [node name="CrosswordMinigame" type="Node2D"]
 script = ExtResource("1_4g2d3")
@@ -15,10 +16,12 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="CrosswordGrid" type="Node2D" parent="."]
-position = Vector2(282, 232)
+position = Vector2(183, 178)
+scale = Vector2(1.25, 1.25)
 
 [node name="LetterWheel" type="Node2D" parent="."]
 position = Vector2(877, 352)
+scale = Vector2(1.2, 1.2)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -36,7 +39,8 @@ offset_left = 199.0
 offset_top = 145.0
 offset_right = 675.0
 offset_bottom = 255.0
-theme_override_font_sizes/font_size = 70
+theme_override_fonts/font = ExtResource("3_n1y0k")
+theme_override_font_sizes/font_size = 74
 text = "Hint: "
 
 [node name="FeedbackLabel" type="Label" parent="UI"]

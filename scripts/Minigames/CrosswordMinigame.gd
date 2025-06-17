@@ -267,7 +267,7 @@ func setup_next_word():
 		return
 
 	var current_word = crossword_data.words[current_word_index]
-	word_clue_label.text = "Dica: " + current_word.clue
+	word_clue_label.text = "Hint: " + current_word.clue
 
 	# Destaca a palavra atual no grid
 	highlight_current_word(current_word)
@@ -334,17 +334,9 @@ func create_letter_wheel(word):
 		letter_button.clip_contents = false
 		letter_button.mouse_filter = Control.MOUSE_FILTER_STOP
 
-		# Configura a fonte
-		var font_res = load("res://assets/fonts/game_font.tres")
-		if font_res:
-			letter_button.add_theme_font_override("font", font_res)
-			# Ajusta o tamanho da fonte baseado no tamanho do botão
-			var font_size = max(20, 28 - (available_letters.size() * 1))
-			letter_button.add_theme_font_size_override("font_size", font_size)
-
 		# Configura o estilo
 		var style = StyleBoxFlat.new()
-		style.bg_color = Color(0, 0.6, 1.0)
+		style.bg_color = Color(0.0, 100, 0.0)
 		style.corner_radius_top_left = button_size/2
 		style.corner_radius_top_right = button_size/2
 		style.corner_radius_bottom_left = button_size/2

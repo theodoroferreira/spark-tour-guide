@@ -15,10 +15,10 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="CrosswordGrid" type="Node2D" parent="."]
-position = Vector2(282, 232)
+position = Vector2(280, 314)
 
 [node name="LetterWheel" type="Node2D" parent="."]
-position = Vector2(877, 352)
+position = Vector2(850, 350)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -32,12 +32,11 @@ grow_vertical = 2
 
 [node name="WordClueLabel" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 199.0
-offset_top = 145.0
-offset_right = 675.0
-offset_bottom = 255.0
-theme_override_font_sizes/font_size = 70
-text = "Hint: "
+offset_left = 207.0
+offset_top = 170.0
+offset_right = 607.0
+offset_bottom = 200.0
+text = "Dica: "
 
 [node name="FeedbackLabel" type="Label" parent="UI"]
 layout_mode = 0
@@ -81,14 +80,11 @@ width = 5.0
 default_color = Color(0.2, 0.6, 1, 0.5)
 
 [node name="PauseButton" type="Button" parent="UI"]
-custom_minimum_size = Vector2(1, 0)
 layout_mode = 0
-offset_left = 1176.0
-offset_top = 137.0
-offset_right = 1364.0
-offset_bottom = 194.0
-theme_override_font_sizes/font_size = 35
-text = "Pause"
+offset_left = 831.0
+offset_top = 121.0
+offset_right = 1206.0
+offset_bottom = 237.0
 
 [node name="CurrentWordHighlight" type="Control" parent="UI"]
 layout_mode = 1

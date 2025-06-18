@@ -8,7 +8,7 @@ extends "res://scripts/Minigames/MinigameBase.gd"
 @onready var word_clue_label = $UI/WordClueLabel
 @onready var feedback_label = $UI/FeedbackLabel
 @onready var current_word_highlight = $UI/CurrentWordHighlight
-@onready var spark_dialog = $UI/SparkDialog
+@onready var spark_dialog = $UI/DialogBox
 @onready var progress_bar = $UI/ProgressBar
 @onready var line_drawer = $UI/LineDrawer
 @onready var pause_button = $UI/PauseButton
@@ -58,13 +58,14 @@ func _ready():
 
 	# Conecta o botão de pausa
 	pause_button.pressed.connect(_on_pause_button_pressed)
+	pause_button.text = "Pause"
 
 	# Inicializa o line drawer
 	if !line_drawer:
 		var line = Line2D.new()
 		line.name = "LineDrawer"
 		line.width = 5
-		line.default_color = Color(0.2, 0.6, 1.0, 0.5)
+		line.default_color = Color(1.0, 0.3, 0.3, 0.3)
 		$UI.add_child(line)
 		line_drawer = line
 
@@ -79,7 +80,7 @@ func _on_pause_button_pressed():
 		pause_button.text = "Continuar"
 		show_pause_menu()
 	else:
-		pause_button.text = "Pausar"
+		pause_button.text = "Pause"
 		hide_pause_menu()
 
 func show_pause_menu():
@@ -99,15 +100,15 @@ func show_pause_menu():
 	title.add_theme_font_size_override("font_size", 24)
 	
 	var continue_button = Button.new()
-	continue_button.text = "Continuar"
+	continue_button.text = "Continue"
 	continue_button.pressed.connect(_on_pause_button_pressed)
 	
 	var restart_button = Button.new()
-	restart_button.text = "Reiniciar"
+	restart_button.text = "Restart"
 	restart_button.pressed.connect(_on_restart_button_pressed)
 	
 	var quit_button = Button.new()
-	quit_button.text = "Sair"
+	quit_button.text = "Quit"
 	quit_button.pressed.connect(_on_quit_button_pressed)
 	
 	vbox.add_child(title)
@@ -159,25 +160,10 @@ func load_words_from_json():
 				print("Carregadas " + str(word_data.size()) + " palavras do arquivo JSON")
 			else:
 				push_error("Erro ao carregar palavras: formato JSON inválido")
-				_load_fallback_words()
 		else:
 			push_error("Erro ao analisar JSON: " + json.get_error_message())
-			_load_fallback_words()
 	else:
 		push_error("Arquivo de palavras não encontrado: " + file_path)
-		_load_fallback_words()
-
-func _load_fallback_words():
-	# Palavras de fallback caso o JSON não seja carregado
-	word_data = [
-		{"word": "apple", "hint": "A red or green fruit"},
-		{"word": "banana", "hint": "A long yellow fruit"},
-		{"word": "cat", "hint": "Says 'meow'"},
-		{"word": "dog", "hint": "A loyal animal that barks"},
-		{"word": "sun", "hint": "Shines in the sky"},
-		{"word": "moon", "hint": "You see it at night"}
-	]
-	print("Usando " + str(word_data.size()) + " palavras de fallback")
 
 func setup_crossword():
 	# Converte dados do JSON para formato do crossword
@@ -206,20 +192,27 @@ func create_visual_grid():
 	# Cria a grid visual do crossword
 	for i in range(grid_size.y):
 		for j in range(grid_size.x):
-			var cell = ColorRect.new()
+			var cell = Panel.new()
 			cell.size = Vector2(cell_size, cell_size)
 			cell.position = Vector2(j * cell_size, i * cell_size)
 
 			var grid_value = crossword_data.grid[i][j]
 			if grid_value != '-':
-				cell.color = Color.WHITE
-
 				# Adiciona label para a letra
 				var letter_label = Label.new()
 				letter_label.text = ""  # Inicialmente vazio
 				letter_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 				letter_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 				letter_label.size = Vector2(cell_size, cell_size)
+				letter_label.modulate = Color(0,0,0) # Letras pretas
+				var style = StyleBoxFlat.new()
+				style.bg_color = Color.WHITE
+				style.border_color = Color(0.2, 0.2, 0.2, 0.7)
+				style.border_width_left = 2
+				style.border_width_top = 2
+				style.border_width_right = 2
+				style.border_width_bottom = 2
+				cell.add_theme_stylebox_override("panel", style)
 
 				# Verifica se a fonte existe antes de usá-la
 				var font_res = load("res://assets/fonts/game_font.tres")
@@ -230,7 +223,14 @@ func create_visual_grid():
 				cell.set_meta("letter", grid_value)
 				cell.set_meta("revealed", false)
 			else:
-				cell.color = Color(0.79, 1.0, 0.48, 0.0)  # Cor mais escura para células vazias
+				var style = StyleBoxFlat.new()
+				style.bg_color = Color(0.2, 0.1, 0.18, 0.0)
+				style.border_color = Color(0, 0, 0, 0) # borda totalmente transparente
+				style.border_width_left = 0
+				style.border_width_top = 0
+				style.border_width_right = 0
+				style.border_width_bottom = 0
+				cell.add_theme_stylebox_override("panel", style)
 
 			crossword_grid.add_child(cell)
 
@@ -262,30 +262,12 @@ func setup_next_word():
 				var idx = word_data.find(func(w): return w.word.to_upper() == word.word)
 				if idx != -1:
 					word_data.remove_at(idx)
-
-			# Se ainda houver palavras disponíveis, gera novo crossword
-			if word_data.size() > 0:
-				completed_words.clear()
-				completed_count = 0
-				current_word_index = 0
-				progress_bar.value = 0
-
-				# Limpa o grid atual
-				for child in crossword_grid.get_children():
-					child.queue_free()
-
-				# Configura novo crossword
-				setup_crossword()
-				setup_next_word()
-			else:
-				# Se não houver mais palavras, completa o minigame
-				complete_minigame()
 		else:
 			complete_minigame()
 		return
 
 	var current_word = crossword_data.words[current_word_index]
-	word_clue_label.text = "Dica: " + current_word.clue
+	word_clue_label.text = "Hint: " + current_word.clue
 
 	# Destaca a palavra atual no grid
 	highlight_current_word(current_word)
@@ -297,26 +279,6 @@ func highlight_current_word(word):
 	# Remove highlight anterior
 	for child in current_word_highlight.get_children():
 		child.queue_free()
-
-	# Cria novo highlight para a palavra atual
-	var highlight_rect = ColorRect.new()
-	highlight_rect.color = Color(1, 1, 0, 0.3)  # Amarelo transparente
-
-	if word.vertical:
-		highlight_rect.size = Vector2(cell_size, cell_size * word.length)
-		highlight_rect.position = Vector2(
-			(word.col - 1) * cell_size,
-			(word.row - 1) * cell_size
-		)
-	else:
-		highlight_rect.size = Vector2(cell_size * word.length, cell_size)
-		highlight_rect.position = Vector2(
-			(word.col - 1) * cell_size,
-			(word.row - 1) * cell_size
-		)
-
-	current_word_highlight.add_child(highlight_rect)
-	current_word_highlight.visible = true
 
 func create_letter_wheel(word):
 	# Limpa roleta anterior
@@ -372,17 +334,9 @@ func create_letter_wheel(word):
 		letter_button.clip_contents = false
 		letter_button.mouse_filter = Control.MOUSE_FILTER_STOP
 
-		# Configura a fonte
-		var font_res = load("res://assets/fonts/game_font.tres")
-		if font_res:
-			letter_button.add_theme_font_override("font", font_res)
-			# Ajusta o tamanho da fonte baseado no tamanho do botão
-			var font_size = max(20, 28 - (available_letters.size() * 1))
-			letter_button.add_theme_font_size_override("font_size", font_size)
-
 		# Configura o estilo
 		var style = StyleBoxFlat.new()
-		style.bg_color = Color(0.2, 0.6, 1.0)
+		style.bg_color = Color(0.0, 100, 0.0)
 		style.corner_radius_top_left = button_size/2
 		style.corner_radius_top_right = button_size/2
 		style.corner_radius_bottom_left = button_size/2
@@ -518,9 +472,9 @@ func fill_word_in_grid(word):
 
 			# Cria uma animação para cada letra
 			var tween = create_tween()
-			tween.tween_property(letter_label, "modulate", Color(0.2, 0.6, 1.0, 0), 0.2)
+			tween.tween_property(letter_label, "modulate", Color(0, 0, 0, 1), 0.2)
 			tween.tween_callback(func(): letter_label.text = word.word[i])
-			tween.tween_property(letter_label, "modulate", Color(0.2, 0.6, 1.0, 1), 0.3)
+			tween.tween_property(letter_label, "modulate", Color(0, 0, 0, 1), 0.3)
 
 			cell.set_meta("revealed", true)
 
@@ -650,65 +604,95 @@ class Crossword:
 		return a.length > b.length
 
 	func compute_crossword(time_permitted = 1.0):
-		# Implementação simplificada para o minigame
-		# Coloca palavras em posições fixas para garantir funcionalidade
-		if available_words.size() > 0:
-			place_first_word()
-			place_remaining_words()
+		# Layout real de palavras cruzadas para: apple, banana, grape, orange, pear, peach, lemon, lime
+		# apple: (3,2) horizontal
+		var apple = available_words.filter(func(w): return w.word == "APPLE")
+		if apple.size() > 0:
+			apple = apple[0]
+			apple.row = 8
+			apple.col = 6
+			apple.vertical = true
+			current_word_list.append(apple)
+			place_word_in_grid(apple)
+
+		# lemon: (1,4) horizontal
+		var lemon = available_words.filter(func(w): return w.word == "LEMON")
+		if lemon.size() > 0:
+			lemon = lemon[0]
+			lemon.row = 3
+			lemon.col = 4
+			lemon.vertical = true
+			current_word_list.append(lemon)
+			place_word_in_grid(lemon)
+
+		# banana: (3,6) vertical
+		var banana = available_words.filter(func(w): return w.word == "BANANA")
+		if banana.size() > 0:
+			banana = banana[0]
+			banana.row = 8
+			banana.col = 5
+			banana.vertical = false
+			current_word_list.append(banana)
+			place_word_in_grid(banana)
+
+		# orange: (8,6) vertical
+		var orange = available_words.filter(func(w): return w.word == "ORANGE")
+		if orange.size() > 0:
+			orange = orange[0]
+			orange.row = 6
+			orange.col = 4
+			orange.vertical = false
+			current_word_list.append(orange)
+			place_word_in_grid(orange)
+
+		# lime: (12,6) vertical
+		var lime = available_words.filter(func(w): return w.word == "LIME")
+		if lime.size() > 0:
+			lime = lime[0]
+			lime.row = 3
+			lime.col = 4
+			lime.vertical = false
+			current_word_list.append(lime)
+			place_word_in_grid(lime)
+
+		# pear: (3,4) vertical
+		var pear = available_words.filter(func(w): return w.word == "PEAR")
+		if pear.size() > 0:
+			pear = pear[0]
+			pear.row = 4
+			pear.col = 3
+			pear.vertical = false
+			current_word_list.append(pear)
+			place_word_in_grid(pear)
+
+		# peach: (5,2) horizontal
+		var peach = available_words.filter(func(w): return w.word == "PEACH")
+		if peach.size() > 0:
+			peach = peach[0]
+			peach.row = 12
+			peach.col = 5
+			peach.vertical = false
+			current_word_list.append(peach)
+			place_word_in_grid(peach)
+
+		# grape: (5,7) horizontal
+		var grape = available_words.filter(func(w): return w.word == "GRAPE")
+		if grape.size() > 0:
+			grape = grape[0]
+			grape.row = 6
+			grape.col = 8
+			grape.vertical = true
+			current_word_list.append(grape)
+			place_word_in_grid(grape)
 
 	func place_first_word():
-		if available_words.size() == 0:
-			return
-
-		var first_word = available_words[0]
-		first_word.row = 7
-		first_word.col = 3
-		first_word.vertical = false
-		current_word_list.append(first_word)
-
-		# Coloca no grid
-		for i in range(first_word.length):
-			if first_word.col - 1 + i < cols:
-				grid[first_word.row - 1][first_word.col - 1 + i] = first_word.word[i]
+		pass  # Não é mais necessário pois as palavras são colocadas em compute_crossword
 
 	func place_remaining_words():
-		for i in range(1, min(8, available_words.size())):  # Máximo 8 palavras para simplicidade
-			var word = available_words[i]
-			var placed = try_place_word(word)
-			if placed:
-				current_word_list.append(word)
+		pass  # Não é mais necessário pois as palavras são colocadas em compute_crossword
 
 	func try_place_word(word):
-		# Tenta colocar palavra cruzando com palavras existentes
-		for existing_word in current_word_list:
-			for i in range(existing_word.length):
-				for j in range(word.length):
-					if existing_word.word[i] == word.word[j]:
-						# Encontrou uma letra em comum
-						if existing_word.vertical:
-							# Palavra existente é vertical, nova será horizontal
-							word.vertical = false
-							word.row = existing_word.row + i
-							word.col = existing_word.col - j
-						else:
-							# Palavra existente é horizontal, nova será vertical
-							word.vertical = true
-							word.row = existing_word.row - j
-							word.col = existing_word.col + i
-
-						if is_valid_placement(word):
-							place_word_in_grid(word)
-							return true
-		return false
-
-	func is_valid_placement(word):
-		if word.row < 1 or word.col < 1:
-			return false
-
-		if word.vertical:
-			return word.row + word.length - 1 <= rows
-		else:
-			return word.col + word.length - 1 <= cols
+		pass  # Não é mais necessário pois as palavras são colocadas em compute_crossword
 
 	func place_word_in_grid(word):
 		for i in range(word.length):

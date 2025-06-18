@@ -6,13 +6,15 @@ extends Node2D
 var dialog_data = [
 	{
 		"name": "Spark",
-		"text": "Welcome to the Train Station! This is where people travel to other cities.",
-		"portrait": "res://assets/characters/spark_reborn_face.png"
+		"en": "Welcome to the Train Station! This is where people travel to other cities.",
+		"pt": "Bem-vindo à Estação de Trem! É aqui que as pessoas viajam para outras cidades.",
+		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	},
 	{
 		"name": "Spark",
-		"text": "Let's play a game to learn words about traveling!",
-		"portrait": "res://assets/characters/spark_reborn_face.png"
+		"en": "Let's play a game to learn words about traveling!",
+		"pt": "Vamos jogar um jogo para aprender palavras sobre viagens!",
+		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	}
 ]
 

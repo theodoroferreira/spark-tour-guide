@@ -39,25 +39,25 @@ navigation_polygon = SubResource("NavigationPolygon_oir2t")
 [node name="LocationSigns" type="Node2D" parent="."]
 
 [node name="TrainStationSign" type="Button" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
-offset_left = 978.0
+offset_left = 999.0
 offset_top = 336.0
-offset_right = 1086.0
+offset_right = 1107.0
 offset_bottom = 386.0
 text = "Train Station"
 
 [node name="CrosswordSign" type="Button" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
-offset_left = 923.0
-offset_top = 628.0
-offset_right = 1044.0
-offset_bottom = 692.0
-text = "Biblioteca"
+offset_left = 973.0
+offset_top = 721.0
+offset_right = 1094.0
+offset_bottom = 785.0
+text = "Library"
 
 [node name="MuseuSign" type="Button" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
 offset_left = 216.0
 offset_top = 720.0
 offset_right = 337.0
 offset_bottom = 777.0
-text = "Museu"
+text = "Museum"
 
 [node name="Stick" type="Sprite2D" parent="."]
 visible = false
@@ -74,19 +74,7 @@ position = Vector2(784, 197)
 texture = ExtResource("4_72wqp")
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="DialogBox" parent="UI" instance=ExtResource("3_osgcs")]
-
-[node name="TitleLabel" type="Label" parent="UI" groups=["scalable_ui"]]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -172.5
-offset_top = 20.0
-offset_right = 172.5
-offset_bottom = 61.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 28
-text = "Spark's Tour Guide"
-horizontal_alignment = 1
+offset_left = -3.0
+offset_right = 4.0

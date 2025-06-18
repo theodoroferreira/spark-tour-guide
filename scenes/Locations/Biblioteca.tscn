@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfdksdkbkjhb"]
+[gd_scene load_steps=6 format=3 uid="uid://dfdksdkbkjhb"]
 
 [ext_resource type="Script" uid="uid://cljdiphubml4s" path="res://scripts/Locations/Biblioteca.gd" id="1_7sf3r"]
 [ext_resource type="Texture2D" uid="uid://d3ek2nbluyebp" path="res://assets/backgrounds/biblioteca.png" id="2_c83yu"]
 [ext_resource type="PackedScene" uid="uid://d2e8pvefg1rge" path="res://scenes/Player.tscn" id="2_isgb7"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_v5e7i"]
+[ext_resource type="FontFile" uid="uid://57o2d1alcp8r" path="res://assets/font/Chalk Board - A Handmade Chalk Font/2. TTF/Chalk Board.ttf" id="4_fpfqa"]
 
 [node name="Biblioteca" type="Node2D"]
 script = ExtResource("1_7sf3r")
@@ -20,20 +21,34 @@ position = Vector2(321, 527)
 scale = Vector2(0.5, 0.5)
 
 [node name="QuadroClickable" type="Button" parent="."]
-offset_left = 563.0
-offset_top = 350.0
-offset_right = 867.0
-offset_bottom = 489.0
+offset_left = 556.0
+offset_top = 338.0
+offset_right = 860.0
+offset_bottom = 477.0
 mouse_default_cursor_shape = 2
-text = "Palavras Cruzadas"
+theme_override_fonts/font = ExtResource("4_fpfqa")
+theme_override_font_sizes/font_size = 75
+text = "CrossWord"
 flat = true
+
+[node name="Label" type="Label" parent="QuadroClickable"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 88.0
+offset_right = 258.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.888541, 0.425986, 0.432166, 1)
+theme_override_fonts/font = ExtResource("4_fpfqa")
+theme_override_font_sizes/font_size = 40
+text = "Click here to play"
+horizontal_alignment = 1
 
 [node name="ReturnButton" type="Button" parent="."]
 offset_left = 35.0
 offset_top = 936.0
 offset_right = 135.0
 offset_bottom = 986.0
-text = "Voltar"
+text = "Back"
 
 [node name="HomeButton" type="Button" parent="."]
 offset_left = 1426.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bcylxj15aelv3"]
 
 [ext_resource type="Script" uid="uid://b474s8isuehye" path="res://scripts/UI/DialogBox.gd" id="1_5fjy5"]
-[ext_resource type="Texture2D" uid="uid://dv071adth1vdf" path="res://assets/characters/spark_reborn_face.png" id="2_4336f"]
+[ext_resource type="Texture2D" uid="uid://c01ga8vynn2g" path="res://assets/characters/spark_face_dft_1.png" id="2_4336f"]
 
 [sub_resource type="Animation" id="Animation_rxpid"]
 resource_name = "fade_out"
@@ -63,9 +63,9 @@ mouse_filter = 2
 
 [node name="NameLabel" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 189.0
+offset_left = 236.0
 offset_top = 13.0
-offset_right = 382.0
+offset_right = 429.0
 offset_bottom = 39.0
 theme_override_font_sizes/font_size = 18
 text = "Spark"
@@ -75,7 +75,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 189.0
+offset_left = 242.0
 offset_top = 45.0
 offset_right = -20.0
 offset_bottom = -20.0
@@ -90,13 +90,14 @@ visible_ratio = 0.0
 
 [node name="Portrait" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 169.0
-offset_bottom = 155.0
+offset_left = 18.0
+offset_top = -59.0
+offset_right = 277.0
+offset_bottom = 169.0
 texture = ExtResource("2_4336f")
 expand_mode = 2
 stretch_mode = 4
+flip_h = true
 
 [node name="NextIndicator" type="Label" parent="Panel"]
 layout_mode = 1

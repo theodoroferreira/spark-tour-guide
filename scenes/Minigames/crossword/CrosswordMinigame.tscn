@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4bk84u6mjyha"]
+[gd_scene load_steps=10 format=3 uid="uid://c4bk84u6mjyha"]
 
 [ext_resource type="Script" uid="uid://cdp6ywx1i1l2b" path="res://scripts/Minigames/CrosswordMinigame.gd" id="1_4g2d3"]
 [ext_resource type="Texture2D" uid="uid://pk42lcy4f41a" path="res://assets/backgrounds/biblioteca_quadro.png" id="2_c0oe6"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_3435x"]
 [ext_resource type="FontFile" uid="uid://57o2d1alcp8r" path="res://assets/font/Chalk Board - A Handmade Chalk Font/2. TTF/Chalk Board.ttf" id="3_n1y0k"]
+[ext_resource type="Texture2D" uid="uid://cmjd53rp5yp0" path="res://assets/characters/t (1).png" id="5_3ma5l"]
+[ext_resource type="Texture2D" uid="uid://7cwckked18rl" path="res://assets/characters/t-_1_.png" id="6_jridl"]
+[ext_resource type="Texture2D" uid="uid://dk5ji3o2f3sq5" path="res://assets/characters/t.png" id="7_ep7yp"]
+[ext_resource type="Texture2D" uid="uid://cfypcgxgmyux8" path="res://assets/characters/t (2).webp" id="8_jaixg"]
+[ext_resource type="Texture2D" uid="uid://d2ew07wcim0j3" path="res://assets/backgrounds/pentagon.png" id="9_3ma5l"]
 
 [node name="CrosswordMinigame" type="Node2D"]
 script = ExtResource("1_4g2d3")
@@ -20,7 +25,8 @@ position = Vector2(183, 178)
 scale = Vector2(1.25, 1.25)
 
 [node name="LetterWheel" type="Node2D" parent="."]
-position = Vector2(877, 352)
+z_index = 1
+position = Vector2(834, 291)
 scale = Vector2(1.2, 1.2)
 
 [node name="UI" type="Control" parent="."]
@@ -107,3 +113,26 @@ offset_bottom = -266.8
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
+
+[node name="T(1)" type="Sprite2D" parent="."]
+position = Vector2(1066, 183)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_3ma5l")
+
+[node name="T-1" type="Sprite2D" parent="."]
+position = Vector2(1287, 709)
+texture = ExtResource("6_jridl")
+
+[node name="T" type="Sprite2D" parent="."]
+position = Vector2(962, 731)
+texture = ExtResource("7_ep7yp")
+
+[node name="T(2)" type="Sprite2D" parent="."]
+position = Vector2(1321, 353)
+texture = ExtResource("8_jaixg")
+
+[node name="Pentagon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.509)
+position = Vector2(978, 472.75)
+scale = Vector2(0.761719, 0.793945)
+texture = ExtResource("9_3ma5l")

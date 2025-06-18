@@ -18,11 +18,11 @@ offset_left = 858.0
 offset_top = 927.0
 offset_right = 1058.0
 offset_bottom = 977.0
-text = "Voltar"
+text = "Back"
 
 [node name="MuseuButton" type="Button" parent="."]
 offset_left = 768.0
 offset_top = 514.0
 offset_right = 879.0
 offset_bottom = 564.0
-text = "Museu"
+text = "Museum"

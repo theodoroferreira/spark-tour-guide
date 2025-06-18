@@ -59,6 +59,13 @@ offset_right = 337.0
 offset_bottom = 777.0
 text = "Museu"
 
+[node name="ChuteVerboSign" type="Button" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
+offset_left = 400.0
+offset_top = 400.0
+offset_right = 520.0
+offset_bottom = 460.0
+text = "Chute o Verbo"
+
 [node name="Stick" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(453, 485)

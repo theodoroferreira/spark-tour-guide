@@ -1,0 +1,182 @@
+[
+    {
+        "sentence": "He ___ to school every day.",
+        "options": [
+            "go",
+            "gone",
+            "goes"
+        ],
+        "correct": "goes"
+    },
+    {
+        "sentence": "They ___ soccer on weekends.",
+        "options": [
+            "plays",
+            "play",
+            "played"
+        ],
+        "correct": "play"
+    },
+    {
+        "sentence": "She ___ breakfast every morning.",
+        "options": [
+            "eat",
+            "eats",
+            "eated"
+        ],
+        "correct": "eats"
+    },
+    {
+        "sentence": "We ___ TV at night.",
+        "options": [
+            "watch",
+            "watches",
+            "watched"
+        ],
+        "correct": "watch"
+    },
+    {
+        "sentence": "I ___ a book now.",
+        "options": [
+            "am read",
+            "reading",
+            "am reading"
+        ],
+        "correct": "am reading"
+    },
+    {
+        "sentence": "He ___ to music in his free time.",
+        "options": [
+            "listen",
+            "listens",
+            "listened"
+        ],
+        "correct": "listens"
+    },
+    {
+        "sentence": "You ___ very fast.",
+        "options": [
+            "run",
+            "runs",
+            "runned"
+        ],
+        "correct": "run"
+    },
+    {
+        "sentence": "My dog ___ in the garden.",
+        "options": [
+            "play",
+            "plays",
+            "played"
+        ],
+        "correct": "plays"
+    },
+    {
+        "sentence": "She ___ coffee every morning.",
+        "options": [
+            "drink",
+            "drinks",
+            "drank"
+        ],
+        "correct": "drinks"
+    },
+    {
+        "sentence": "They ___ at the gym now.",
+        "options": [
+            "are exercising",
+            "exercise",
+            "exercised"
+        ],
+        "correct": "are exercising"
+    },
+    {
+        "sentence": "He always ___ his homework after school.",
+        "options": [
+            "do",
+            "does",
+            "did"
+        ],
+        "correct": "does"
+    },
+    {
+        "sentence": "We ___ dinner together every night.",
+        "options": [
+            "have",
+            "has",
+            "had"
+        ],
+        "correct": "have"
+    },
+    {
+        "sentence": "She ___ to the gym on Mondays.",
+        "options": [
+            "go",
+            "goes",
+            "gone"
+        ],
+        "correct": "goes"
+    },
+    {
+        "sentence": "I ___ my friends on weekends.",
+        "options": [
+            "meet",
+            "meets",
+            "met"
+        ],
+        "correct": "meet"
+    },
+    {
+        "sentence": "He ___ his bike to school.",
+        "options": [
+            "ride",
+            "rides",
+            "rode"
+        ],
+        "correct": "rides"
+    },
+    {
+        "sentence": "The baby ___ a lot during the night.",
+        "options": [
+            "cry",
+            "cries",
+            "cried"
+        ],
+        "correct": "cries"
+    },
+    {
+        "sentence": "They ___ to music every evening.",
+        "options": [
+            "listens",
+            "listen",
+            "listened"
+        ],
+        "correct": "listen"
+    },
+    {
+        "sentence": "She ___ beautiful pictures.",
+        "options": [
+            "draw",
+            "draws",
+            "drew"
+        ],
+        "correct": "draws"
+    },
+    {
+        "sentence": "My parents ___ early every day.",
+        "options": [
+            "get up",
+            "gets up",
+            "got up"
+        ],
+        "correct": "get up"
+    },
+    {
+        "sentence": "He ___ very hard for the exam.",
+        "options": [
+            "study",
+            "studies",
+            "studied"
+        ],
+        "correct": "studies"
+    }
+]

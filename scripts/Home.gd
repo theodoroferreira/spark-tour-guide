@@ -25,6 +25,8 @@ func _ready():
 	$LocationSigns/CrosswordSign.pressed.connect(_on_crossword_sign_pressed)
 	# Connect Museu sign to load the Caminho do Museu location
 	$LocationSigns/MuseuSign.pressed.connect(_on_museu_sign_pressed)
+	# Connect Chute o Verbo sign to load the Estádio location
+	$LocationSigns/ChuteVerboSign.pressed.connect(_on_chute_verbo_sign_pressed)
 
 func start_intro_dialog():
 	var dialog_box = $UI/DialogBox
@@ -73,3 +75,14 @@ func _on_museu_sign_pressed():
 	print("Clicou em Museu, carregando cena...")
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/CaminhoMuseu.tscn")
 	GameManager.current_location = "CaminhoMuseu"
+
+func _on_chute_verbo_sign_pressed():
+	print("Clicou em Estádio, carregando cena...")
+	print("Verificando se o arquivo do estádio existe...")
+
+	# Verifica se o arquivo existe antes de tentar carregar
+	var file_check = FileAccess.file_exists("res://scenes/Locations/Estadio.tscn")
+	print("Arquivo do estádio existe: " + str(file_check))
+
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/Estadio.tscn")
+	GameManager.current_location = "Estadio"

@@ -1,0 +1,148 @@
+[gd_scene load_steps=5 format=3 uid="uid://dax8y706w5v4u"]
+
+[ext_resource type="Script" path="res://scripts/Minigames/ChuteVerboMinigame.gd" id="1_chute"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/goleira.png" id="2_goleira"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/bola.png" id="3_bola"]
+[ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="4_dialog"]
+
+[node name="ChuteVerboMinigame" type="Node2D"]
+script = ExtResource("1_chute")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1536.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control" groups=["background"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_goleira")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SentenceLabel" type="Label" parent="Control" groups=["scalable_ui"]]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 50.0
+offset_top = 20.0
+offset_right = -50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 42
+text = "Complete a frase:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="Control" groups=["scalable_ui"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = 100.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 22
+text = "Voltar"
+
+[node name="HomeButton" type="Button" parent="Control" groups=["scalable_ui"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 110.0
+offset_right = -50.0
+offset_bottom = 160.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 22
+text = "Home"
+
+[node name="BallsContainer" type="Node2D" parent="."]
+position = Vector2(768, 700)
+
+[node name="Ball1" type="TextureButton" parent="BallsContainer" groups=["scalable_ui"]]
+position = Vector2(-350, 0)
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("3_bola")
+
+[node name="Ball1Label" type="Label" parent="BallsContainer/Ball1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -250.0
+offset_top = -120.0
+offset_right = 250.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "go"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ball2" type="TextureButton" parent="BallsContainer" groups=["scalable_ui"]]
+position = Vector2(0, 0)
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("3_bola")
+
+[node name="Ball2Label" type="Label" parent="BallsContainer/Ball2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -250.0
+offset_top = -120.0
+offset_right = 250.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "goes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ball3" type="TextureButton" parent="BallsContainer" groups=["scalable_ui"]]
+position = Vector2(350, 0)
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("3_bola")
+
+[node name="Ball3Label" type="Label" parent="BallsContainer/Ball3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -250.0
+offset_top = -120.0
+offset_right = 250.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "gone"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DialogBox" parent="UI" instance=ExtResource("4_dialog")]
+visible = false

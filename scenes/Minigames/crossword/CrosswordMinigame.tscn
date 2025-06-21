@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4bk84u6mjyha"]
+[gd_scene load_steps=11 format=3 uid="uid://c4bk84u6mjyha"]
 
 [ext_resource type="Script" uid="uid://cdp6ywx1i1l2b" path="res://scripts/Minigames/CrosswordMinigame.gd" id="1_4g2d3"]
 [ext_resource type="Texture2D" uid="uid://pk42lcy4f41a" path="res://assets/backgrounds/biblioteca_quadro.png" id="2_c0oe6"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_3435x"]
 [ext_resource type="FontFile" uid="uid://57o2d1alcp8r" path="res://assets/font/Chalk Board - A Handmade Chalk Font/2. TTF/Chalk Board.ttf" id="3_n1y0k"]
-[ext_resource type="Texture2D" uid="uid://cmjd53rp5yp0" path="res://assets/characters/t (1).png" id="5_3ma5l"]
-[ext_resource type="Texture2D" uid="uid://7cwckked18rl" path="res://assets/characters/t-_1_.png" id="6_jridl"]
-[ext_resource type="Texture2D" uid="uid://dk5ji3o2f3sq5" path="res://assets/characters/t.png" id="7_ep7yp"]
-[ext_resource type="Texture2D" uid="uid://cfypcgxgmyux8" path="res://assets/characters/t (2).webp" id="8_jaixg"]
+[ext_resource type="Texture2D" uid="uid://batx643k62qir" path="res://assets/characters/banana.png" id="6_jridl"]
+[ext_resource type="Texture2D" uid="uid://yf1pofd5y0wf" path="res://assets/characters/gustavo_lima.png" id="7_ep7yp"]
+[ext_resource type="Texture2D" uid="uid://bspc5qpcxaldq" path="res://assets/characters/laranja.png" id="8_jaixg"]
 [ext_resource type="Texture2D" uid="uid://d2ew07wcim0j3" path="res://assets/backgrounds/pentagon.png" id="9_3ma5l"]
+[ext_resource type="Texture2D" uid="uid://lks44npbu0mi" path="res://assets/characters/maca.png" id="9_4vxlo"]
+[ext_resource type="Texture2D" uid="uid://dhyq30sn8r8hc" path="res://assets/characters/uva.png" id="10_oydad"]
 
 [node name="CrosswordMinigame" type="Node2D"]
 script = ExtResource("1_4g2d3")
@@ -30,6 +31,7 @@ position = Vector2(834, 291)
 scale = Vector2(1.2, 1.2)
 
 [node name="UI" type="Control" parent="."]
+z_index = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,6 +69,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="UI"]
+z_index = 1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -80,6 +83,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="DialogBox" parent="UI" instance=ExtResource("3_3435x")]
+z_index = 2
 layout_mode = 1
 offset_left = -2.0
 offset_top = 848.0
@@ -114,25 +118,35 @@ offset_bottom = -266.8
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
 
-[node name="T(1)" type="Sprite2D" parent="."]
-position = Vector2(1066, 183)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("5_3ma5l")
-
-[node name="T-1" type="Sprite2D" parent="."]
-position = Vector2(1287, 709)
-texture = ExtResource("6_jridl")
-
-[node name="T" type="Sprite2D" parent="."]
-position = Vector2(962, 731)
-texture = ExtResource("7_ep7yp")
-
-[node name="T(2)" type="Sprite2D" parent="."]
-position = Vector2(1321, 353)
-texture = ExtResource("8_jaixg")
-
 [node name="Pentagon" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.509)
 position = Vector2(978, 472.75)
 scale = Vector2(0.761719, 0.793945)
 texture = ExtResource("9_3ma5l")
+
+[node name="Banana" type="Sprite2D" parent="."]
+position = Vector2(260, 762)
+scale = Vector2(0.578125, 0.539063)
+texture = ExtResource("6_jridl")
+flip_h = true
+
+[node name="GustavoLima" type="Sprite2D" parent="."]
+position = Vector2(852, 255)
+rotation = -0.263545
+scale = Vector2(0.524414, 0.511719)
+texture = ExtResource("7_ep7yp")
+
+[node name="Laranja" type="Sprite2D" parent="."]
+position = Vector2(982.625, 767.241)
+scale = Vector2(0.626465, 0.614224)
+texture = ExtResource("8_jaixg")
+
+[node name="Maca" type="Sprite2D" parent="."]
+position = Vector2(1278, 771)
+scale = Vector2(0.588867, 0.618458)
+texture = ExtResource("9_4vxlo")
+
+[node name="Uva" type="Sprite2D" parent="."]
+position = Vector2(1270, 322)
+scale = Vector2(0.556641, 0.556641)
+texture = ExtResource("10_oydad")

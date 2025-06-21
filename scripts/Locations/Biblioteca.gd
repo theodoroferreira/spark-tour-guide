@@ -7,14 +7,14 @@ extends Node2D
 var dialog_data = [
 	{
 		"name": "Spark",
-		"en": "Welcome to the Library! Here you can learn new English words.",
-		"pt": "Bem-vindo à Biblioteca! Aqui você pode aprender novas palavras em inglês.",
+		"en": "Welcome to the Library, partner! This here’s the place to learn yerself some fine English words!",
+		"pt": "Bem-vindo à Biblioteca, tchê! Aqui tu vai aprender umas palavras em inglês de responsa!",
 		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	},
 	{
 		"name": "Spark",
-		"en": "Click on the frame to play a crossword game!",
-		"pt": "Clique no quadro para jogar um jogo de palavras cruzadas!",
+		"en": "Give that frame a click and let's rustle up a good ol' crossword game!",
+		"pt": "Clique nesse quadro e vamos fazer um bom e velho jogo de palavras cruzadas!",
 		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	}
 ]

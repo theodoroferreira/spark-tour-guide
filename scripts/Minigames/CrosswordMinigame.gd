@@ -37,20 +37,20 @@ var word_data = []
 var dialog_data = [
 	{
 		"name": "Spark",
-		"en": "Hello! Let's solve English crosswords",
-		"pt": "Olá! Vamos resolver palavras cruzadas em inglês",
+		"en": "Well howdy, buddy! Let's solve some English crosswords, shall we?",
+		"pt": "Bah, tchê! Vamos resolver umas palavras cruzadas em inglês!",
 		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	},
 	{
 		"name": "Spark",
-		"en": "Drag your finger over the letters to form words!",
-		"pt": "Arraste seu dedo sobre as letras para formar as palavras!",
+		"en": "Slide your finger over them letters to build the words, partner!",
+		"pt": "Arrasta teu dedo por cima das letras pra formar as palavras, vivente!",
 		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	},
 	{
 		"name": "Spark",
-		"en": "Let's begin!",
-		"pt": "Vamos começar!",
+		"en": "Alrighty then, let's get started, folks!",
+		"pt": "Vamos dar início, gurizada!",
 		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	}
 ]

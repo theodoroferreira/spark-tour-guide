@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b33t81wdnlndr"]
+[gd_scene load_steps=7 format=3 uid="uid://b33t81wdnlndr"]
 
 [ext_resource type="Script" uid="uid://cdro1dmc4t3gy" path="res://scripts/Home.gd" id="1_p2yb4"]
 [ext_resource type="Texture2D" uid="uid://4xjwu3x6qceh" path="res://assets/backgrounds/inicio.png" id="2_72wqp"]
 [ext_resource type="PackedScene" uid="uid://d2e8pvefg1rge" path="res://scenes/Player.tscn" id="2_yrnev"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_osgcs"]
-[ext_resource type="Texture2D" uid="uid://c3dsopkdh6lkl" path="res://assets/ui/stick.png" id="3_yk4sq"]
-[ext_resource type="Texture2D" uid="uid://btcynuwhnwxxq" path="res://assets/characters/spark_reborn_svg.svg" id="4_72wqp"]
+[ext_resource type="Texture2D" uid="uid://33tkcibcy2qf" path="res://assets/characters/spark_reborn.png" id="4_72wqp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_oir2t"]
 
@@ -59,18 +58,13 @@ offset_right = 337.0
 offset_bottom = 777.0
 text = "Museum"
 
-[node name="Stick" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(453, 485)
-scale = Vector2(0.66129, 0.66129)
-texture = ExtResource("3_yk4sq")
-
 [node name="Player" parent="." instance=ExtResource("2_yrnev")]
 position = Vector2(503, 293)
 scale = Vector2(0.5, 0.5)
 
 [node name="Spark" type="Sprite2D" parent="."]
-position = Vector2(784, 197)
+position = Vector2(821, 175)
+scale = Vector2(0.240714, 0.240714)
 texture = ExtResource("4_72wqp")
 
 [node name="UI" type="CanvasLayer" parent="."]

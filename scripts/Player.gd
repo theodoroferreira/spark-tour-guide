@@ -9,10 +9,20 @@ var path = []
 
 @onready var navigation_agent = $NavigationAgent2D
 @onready var animation_player = $AnimationPlayer
+@onready var sprite = $Sprite2D
+
+var guri_texture = preload("res://assets/characters/guri.png")
+var guria_texture = preload("res://assets/characters/guria.png")
 
 func _ready():
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 4.0
+
+	# Set character sprite based on GameManager selection
+	if GameManager.player_character == "guri":
+		sprite.texture = guri_texture
+	else: # Default to guria if null or anything else
+		sprite.texture = guria_texture
 
 func _physics_process(_delta):
 	if is_moving:

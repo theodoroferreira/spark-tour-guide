@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc8xojh3qhy6h"]
+[gd_scene load_steps=4 format=3 uid="uid://cc8xojh3qhy6h"]
 
 [ext_resource type="Texture2D" uid="uid://eymd3nkayxr8" path="res://assets/backgrounds/caminho_museu.png" id="1_museu_caminho_bg"]
 [ext_resource type="Script" uid="uid://blu3oathcm54j" path="res://scripts/Locations/CaminhoMuseu.gd" id="2_caminho_museu_script"]
+[ext_resource type="PackedScene" uid="uid://d2e8pvefg1rge" path="res://scenes/Player.tscn" id="3_286li"]
 
 [node name="CaminhoMuseu" type="Node2D"]
 script = ExtResource("2_caminho_museu_script")
@@ -26,3 +27,7 @@ offset_top = 514.0
 offset_right = 879.0
 offset_bottom = 564.0
 text = "Museum"
+
+[node name="Player" parent="." instance=ExtResource("3_286li")]
+position = Vector2(650, 626)
+scale = Vector2(0.7, 0.7)

@@ -5,6 +5,7 @@ extends "res://scripts/Minigames/MinigameBase.gd"
 @onready var dialog_box = $UI/DialogBox
 @onready var back_button = $Control/BackButton
 @onready var home_button = $Control/HomeButton
+@onready var score_label = $Control/ScoreLabel
 
 var verbs_data = []
 var current_question = {}
@@ -12,6 +13,12 @@ var correct_answers = 0
 var total_questions_answered = 0
 var current_options = []
 var balls_clicked = [false, false, false]
+var dialog_open = false
+var waiting_for_dialog_end = false
+var should_load_new_question = false
+var score = 0
+var points_per_correct = 10
+var points_per_incorrect = -2
 
 # Posições iniciais das bolas
 var initial_ball_positions = [
@@ -56,12 +63,16 @@ func _ready():
 	if not home_button:
 		push_error("HomeButton não encontrado!")
 		return
+	if not score_label:
+		push_error("ScoreLabel não encontrado!")
+		return
 
 	super._ready()
 	load_verbs_data()
 	connect_ball_signals()
 	back_button.pressed.connect(_on_back_button_pressed)
 	home_button.pressed.connect(_on_home_button_pressed)
+	update_score()  # Inicializa o display do score
 
 	# Verifica se o GameManager existe antes de conectar
 	if GameManager:
@@ -120,6 +131,14 @@ func update_ball_labels():
 				label.text = current_options[i - 1].strip_edges()
 			ball.visible = not balls_clicked[i-1]
 
+func update_score():
+	score_label.text = "Score: " + str(score)
+
+func add_score(points):
+	score += points
+	score = max(0, score)  # Score não pode ser negativo
+	update_score()
+
 func _on_ball_pressed(ball_index):
 	if balls_clicked[ball_index-1]:
 		return
@@ -137,28 +156,19 @@ func _on_ball_pressed(ball_index):
 		# Resposta correta - bola vai para o gol
 		correct_answers += 1
 		total_questions_answered += 1
+		add_score(points_per_correct)
 		animate_ball_to_goal(ball)
 		await get_tree().create_timer(1.0).timeout
-		if dialog_box:
-			dialog_box.start_dialog(success_dialog)
-			await dialog_box.dialog_ended
+		_show_dialog(success_dialog, true)  # true = acertou
 		ball.visible = false
-		# Troca de frase quando acerta
-		await get_tree().create_timer(0.5).timeout
-		load_new_question()
 	else:
 		# Resposta incorreta - bola vai para fora
 		total_questions_answered += 1
+		add_score(points_per_incorrect)
 		animate_ball_out(ball)
 		await get_tree().create_timer(1.0).timeout
-		if dialog_box:
-			dialog_box.start_dialog(error_dialog)
-			await dialog_box.dialog_ended
+		_show_dialog(error_dialog, false)  # false = errou
 		ball.visible = false
-		# Só muda de frase quando todas as bolas forem chutadas (erradas)
-		if balls_clicked[0] and balls_clicked[1] and balls_clicked[2]:
-			await get_tree().create_timer(0.5).timeout
-			load_new_question()
 
 func animate_ball_to_goal(ball):
 	if not ball:
@@ -188,4 +198,42 @@ func reset():
 	super.reset()
 	correct_answers = 0
 	total_questions_answered = 0
+	score = 0
+	update_score()
 	reset_balls_to_initial_positions()
+
+func _on_dialog_ended():
+	dialog_open = false
+	if should_load_new_question:
+		await get_tree().create_timer(0.5).timeout
+		load_new_question()
+		should_load_new_question = false
+
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		# Garantir que o sinal é desconectado quando o nó é destruído
+		if dialog_box and dialog_box.dialog_ended.is_connected(_on_dialog_ended):
+			dialog_box.dialog_ended.disconnect(_on_dialog_ended)
+
+func _show_dialog(dialog_data, is_correct):
+	if dialog_open or dialog_box.is_dialog_active or dialog_box.is_animating:
+		print("Diálogo já está aberto ou animando, ignorando.")
+		return
+	dialog_open = true
+	
+	# Se acertou, sempre carrega nova questão
+	# Se errou, só carrega se todas as bolas foram chutadas
+	if is_correct:
+		should_load_new_question = true
+	else:
+		should_load_new_question = (balls_clicked[0] and balls_clicked[1] and balls_clicked[2])
+
+	# Garantir que o sinal anterior foi desconectado
+	if dialog_box.dialog_ended.is_connected(_on_dialog_ended):
+		dialog_box.dialog_ended.disconnect(_on_dialog_ended)
+	
+	# Resetar DialogBox antes de iniciar
+	dialog_box.reset()
+	# Conectar o novo sinal
+	dialog_box.dialog_ended.connect(_on_dialog_ended)
+	dialog_box.start_dialog(dialog_data)

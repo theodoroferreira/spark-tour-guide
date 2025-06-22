@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dax8y706w5v4u"]
+[gd_scene load_steps=6 format=3 uid="uid://dax8y706w5v4u"]
 
-[ext_resource type="Script" path="res://scripts/Minigames/ChuteVerboMinigame.gd" id="1_chute"]
-[ext_resource type="Texture2D" path="res://assets/backgrounds/goleira.png" id="2_goleira"]
-[ext_resource type="Texture2D" path="res://assets/backgrounds/bola.png" id="3_bola"]
+[ext_resource type="Script" uid="uid://bgg0eywpfily7" path="res://scripts/Minigames/ChuteVerboMinigame.gd" id="1_chute"]
+[ext_resource type="Texture2D" uid="uid://n14wwyqq4osh" path="res://assets/backgrounds/goleira.png" id="2_goleira"]
+[ext_resource type="Texture2D" uid="uid://sx1tkq6s7lxm" path="res://assets/backgrounds/bola.png" id="3_bola"]
+[ext_resource type="FontFile" uid="uid://cb3h2rss2rg7b" path="res://assets/font/madness_hyperactive/Madness Hyperactive.otf" id="3_l4ulk"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="4_dialog"]
 
 [node name="ChuteVerboMinigame" type="Node2D"]
@@ -23,10 +24,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_goleira")
@@ -42,8 +39,10 @@ offset_top = 20.0
 offset_right = -50.0
 offset_bottom = 100.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 42
-text = "Complete a frase:"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_l4ulk")
+theme_override_font_sizes/font_size = 80
+text = "Complete the phrase:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -52,41 +51,63 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_top = 50.0
-offset_right = -50.0
-offset_bottom = 100.0
+offset_left = -177.0
+offset_top = 23.0
+offset_right = -27.0
+offset_bottom = 73.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 22
-text = "Voltar"
+text = "Back"
 
 [node name="HomeButton" type="Button" parent="Control" groups=["scalable_ui"]]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_top = 110.0
-offset_right = -50.0
-offset_bottom = 160.0
+offset_left = -177.0
+offset_top = 83.0
+offset_right = -27.0
+offset_bottom = 133.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 22
 text = "Home"
+
+[node name="ScoreLabel" type="Label" parent="Control" groups=["scalable_ui"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 25.0
+offset_right = -1219.0
+offset_bottom = -914.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.18634, 0.639309, 0.233382, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("3_l4ulk")
+theme_override_font_sizes/font_size = 75
+text = "Score :  0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BallsContainer" type="Node2D" parent="."]
 position = Vector2(768, 700)
 
 [node name="Ball1" type="TextureButton" parent="BallsContainer" groups=["scalable_ui"]]
-position = Vector2(-350, 0)
+offset_left = -461.0
+offset_top = -4.0
+offset_right = 563.0
+offset_bottom = 1020.0
 scale = Vector2(0.15, 0.15)
 texture_normal = ExtResource("3_bola")
 
 [node name="Ball1Label" type="Label" parent="BallsContainer/Ball1"]
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
-anchor_top = 0.0
 anchor_right = 0.5
-anchor_bottom = 0.0
 offset_left = -250.0
 offset_top = -120.0
 offset_right = 250.0
@@ -99,16 +120,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Ball2" type="TextureButton" parent="BallsContainer" groups=["scalable_ui"]]
-position = Vector2(0, 0)
+offset_left = -111.0
+offset_top = -4.0
+offset_right = 913.0
+offset_bottom = 1020.0
 scale = Vector2(0.15, 0.15)
 texture_normal = ExtResource("3_bola")
 
 [node name="Ball2Label" type="Label" parent="BallsContainer/Ball2"]
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
-anchor_top = 0.0
 anchor_right = 0.5
-anchor_bottom = 0.0
 offset_left = -250.0
 offset_top = -120.0
 offset_right = 250.0
@@ -121,16 +143,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Ball3" type="TextureButton" parent="BallsContainer" groups=["scalable_ui"]]
-position = Vector2(350, 0)
+offset_left = 239.0
+offset_top = -4.0
+offset_right = 1263.0
+offset_bottom = 1020.0
 scale = Vector2(0.15, 0.15)
 texture_normal = ExtResource("3_bola")
 
 [node name="Ball3Label" type="Label" parent="BallsContainer/Ball3"]
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
-anchor_top = 0.0
 anchor_right = 0.5
-anchor_bottom = 0.0
 offset_left = -250.0
 offset_top = -120.0
 offset_right = 250.0

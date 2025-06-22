@@ -1,10 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://b33t81wdnlndr"]
+[gd_scene load_steps=15 format=3 uid="uid://b33t81wdnlndr"]
 
 [ext_resource type="Script" uid="uid://cdro1dmc4t3gy" path="res://scripts/Home.gd" id="1_p2yb4"]
 [ext_resource type="Texture2D" uid="uid://4xjwu3x6qceh" path="res://assets/backgrounds/inicio.png" id="2_72wqp"]
 [ext_resource type="PackedScene" uid="uid://d2e8pvefg1rge" path="res://scenes/Player.tscn" id="2_yrnev"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_osgcs"]
 [ext_resource type="Texture2D" uid="uid://33tkcibcy2qf" path="res://assets/characters/spark_reborn.png" id="4_72wqp"]
+[ext_resource type="Texture2D" uid="uid://dsl78tqw8n01a" path="res://assets/placas/go_museum.png" id="5_museum"]
+[ext_resource type="Texture2D" uid="uid://b5y2pgxer1e3e" path="res://assets/placas/go_museum_enlightened.png" id="6_museum_hover"]
+[ext_resource type="Texture2D" uid="uid://b86hfu3rd1kem" path="res://assets/placas/library.png" id="7_library"]
+[ext_resource type="Texture2D" uid="uid://c53hm38e8j5b7" path="res://assets/placas/library_enlightened.png" id="8_library_hover"]
+[ext_resource type="Texture2D" uid="uid://dg4do5gnwkkfg" path="res://assets/placas/score_verb.png" id="9_score_verb"]
+[ext_resource type="Texture2D" uid="uid://cwt23jp32rjeh" path="res://assets/placas/score_verb_enlightened.png" id="10_score_verb_hover"]
+[ext_resource type="Texture2D" uid="uid://4d4pncpna64l" path="res://assets/placas/train_station.png" id="11_train_station"]
+[ext_resource type="Texture2D" uid="uid://bx8nj7122ab51" path="res://assets/placas/train_station_enlightened.png" id="12_train_station_hover"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_oir2t"]
 
@@ -37,49 +45,65 @@ navigation_polygon = SubResource("NavigationPolygon_oir2t")
 
 [node name="LocationSigns" type="Node2D" parent="."]
 
-[node name="TrainStationSign" type="Button" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
-offset_left = 999.0
-offset_top = 336.0
-offset_right = 1107.0
-offset_bottom = 386.0
-text = "Train Station"
+[node name="TrainStationSign" type="TextureButton" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
+offset_left = 1008.0
+offset_top = 237.0
+offset_right = 1520.0
+offset_bottom = 749.0
+rotation = 0.198968
+scale = Vector2(0.55, 0.55)
+texture_normal = ExtResource("11_train_station")
+texture_hover = ExtResource("12_train_station_hover")
+stretch_mode = 3
 
-[node name="CrosswordSign" type="Button" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
-offset_left = 973.0
-offset_top = 721.0
-offset_right = 1094.0
-offset_bottom = 785.0
-text = "Library"
+[node name="CrosswordSign" type="TextureButton" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
+offset_left = 1087.0
+offset_top = 521.0
+offset_right = 1599.0
+offset_bottom = 1033.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("7_library")
+texture_hover = ExtResource("8_library_hover")
+stretch_mode = 3
 
-[node name="MuseuSign" type="Button" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
-offset_left = 216.0
-offset_top = 720.0
-offset_right = 337.0
-offset_bottom = 777.0
-text = "Museu"
+[node name="MuseuSign" type="TextureButton" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
+offset_left = 24.0
+offset_top = 440.0
+offset_right = 536.0
+offset_bottom = 952.0
+rotation = -0.101229
+scale = Vector2(0.65, 0.65)
+texture_normal = ExtResource("5_museum")
+texture_hover = ExtResource("6_museum_hover")
+stretch_mode = 3
 
-[node name="ChuteVerboSign" type="Button" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
-offset_left = 400.0
-offset_top = 400.0
-offset_right = 520.0
-offset_bottom = 460.0
-text = "Chute o Verbo"
-
-[node name="Stick" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(453, 485)
-scale = Vector2(0.66129, 0.66129)
-texture = ExtResource("3_yk4sq")
-text = "Museum"
+[node name="ChuteVerboSign" type="TextureButton" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
+offset_left = 153.0
+offset_top = 184.0
+offset_right = 665.0
+offset_bottom = 696.0
+rotation = -0.0663225
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("9_score_verb")
+texture_hover = ExtResource("10_score_verb_hover")
+stretch_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("2_yrnev")]
-position = Vector2(503, 293)
-scale = Vector2(0.5, 0.5)
+position = Vector2(634, 374)
+scale = Vector2(0.7, 0.7)
 
 [node name="Spark" type="Sprite2D" parent="."]
 position = Vector2(821, 175)
 scale = Vector2(0.240714, 0.240714)
 texture = ExtResource("4_72wqp")
+
+[node name="MenuButton" type="Button" parent="." groups=["scalable_ui"]]
+offset_left = 1400.0
+offset_top = 20.0
+offset_right = 1500.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 18
+text = "Menu"
 
 [node name="UI" type="CanvasLayer" parent="."]
 

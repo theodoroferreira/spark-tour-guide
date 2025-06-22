@@ -25,7 +25,7 @@ offset_left = 1407.0
 offset_top = 942.0
 offset_right = 1507.0
 offset_bottom = 992.0
-text = "Voltar"
+text = "Back"
 
 [node name="ButtonsContainer" type="Node2D" parent="."]
 position = Vector2(576, 324)

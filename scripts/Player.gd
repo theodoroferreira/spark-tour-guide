@@ -11,8 +11,8 @@ var path = []
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
 
-var guri_texture = preload("res://assets/characters/guri.png")
-var guria_texture = preload("res://assets/characters/guria.png")
+var guri_texture = preload("res://assets/characters/guri_sombra.png")
+var guria_texture = preload("res://assets/characters/guria_sombra.png")
 
 func _ready():
 	navigation_agent.path_desired_distance = 4.0

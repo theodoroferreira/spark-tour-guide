@@ -12,7 +12,7 @@ var dialog_data = [
 	},
 	{
 		"name": "Spark",
-		"en": "Just click on any o’ them signs to mosey on over to a spot in town!",
+		"en": "Just click on any o' them signs to mosey on over to a spot in town!",
 		"pt": "Dá um clique em qualquer uma das placas pra dar uma voltinha pela cidade!",
 		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	}
@@ -29,6 +29,8 @@ func _ready():
 	$LocationSigns/MuseuSign.pressed.connect(_on_museu_sign_pressed)
 	# Connect Chute o Verbo sign to load the Estádio location
 	$LocationSigns/ChuteVerboSign.pressed.connect(_on_chute_verbo_sign_pressed)
+	# Connect Menu button to return to menu
+	$MenuButton.pressed.connect(_on_menu_button_pressed)
 
 func start_intro_dialog():
 	var dialog_box = $UI/DialogBox
@@ -88,3 +90,7 @@ func _on_chute_verbo_sign_pressed():
 
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/Estadio.tscn")
 	GameManager.current_location = "Estadio"
+
+func _on_menu_button_pressed():
+	print("Clicou em Menu, retornando ao menu...")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/Menu.tscn")

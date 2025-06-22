@@ -6,13 +6,15 @@ extends Node2D
 var dialog_data = [
 	{
 		"name": "Spark",
-		"text": "Hi there! Welcome to Ijuí. I'm Spark, your guide!",
-		"portrait": "res://assets/characters/spark_reborn_face.png"
+		"en": "Well howdy, partner! Welcome to Ijuí! I'm Spark, your trusty guide 'round these parts!",
+		"pt": "Bah, mas que alegria te ver por aqui! Bem-vindo a Ijuí, tchê! Eu sou o Spark, teu guia nessa querência!",
+		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	},
 	{
 		"name": "Spark",
-		"text": "Click on any of the signs to visit a location in town!",
-		"portrait": "res://assets/characters/spark_reborn_face.png"
+		"en": "Just click on any o’ them signs to mosey on over to a spot in town!",
+		"pt": "Dá um clique em qualquer uma das placas pra dar uma voltinha pela cidade!",
+		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	}
 ]
 

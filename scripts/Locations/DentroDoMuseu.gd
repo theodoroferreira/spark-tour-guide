@@ -34,32 +34,32 @@ func _show_dialog(key: String):
 		"chimarrao": {
 			"en": "Chimarrão is a traditional hot drink from southern Brazil, made by steeping yerba mate leaves in hot water and drinking it from a gourd with a metal straw. It is a symbol of friendship and culture in the region.",
 			"pt": "Chimarrão é uma bebida quente tradicional do sul do Brasil, feita com folhas de erva-mate em água quente e tomada em uma cuia com um canudo de metal. É um símbolo de amizade e cultura na região.",
-			"portrait": "res://assets/characters/spark_reborn_face.png"
+			"portrait": "res://assets/characters/spark_face_dft_1.png"
 		},
 		"boitala": {
 			"en": "Boitatá is a fiery serpent from Brazilian folklore. It's said to protect the forests from those who try to harm them.",
 			"pt": "O Boitatá é uma serpente de fogo do folclore brasileiro. Dizem que protege as florestas contra quem tenta destruí-las.",
-			"portrait": "res://assets/characters/spark_reborn_face.png"
+			"portrait": "res://assets/characters/spark_face_dft_1.png"
 		},
 		"chapeu": {
 			"en": "A symbol of Gaúcho culture, this wide-brimmed hat is worn by men and women during festivals, horse rides, and daily life.",
 			"pt": "Símbolo da cultura gaúcha, esse chapéu de aba larga é usado por homens e mulheres em festas, cavalgadas e no dia a dia.",
-			"portrait": "res://assets/characters/spark_reborn_face.png"
+			"portrait": "res://assets/characters/spark_face_dft_1.png"
 		},
 		"bombacha": {
 			"en": "The bombacha is a loose, comfortable pair of pants worn by gaúchos, perfect for horseback riding and farm work.",
 			"pt": "A bombacha é uma calça larga e confortável usada por gaúchos, ideal para montar a cavalo e trabalhar no campo.",
-			"portrait": "res://assets/characters/spark_reborn_face.png"
+			"portrait": "res://assets/characters/spark_face_dft_1.png"
 		},
 		"pilcha": {
 			"en": "Part of the 'pilcha', the traditional gaúcho outfit includes a shirt, jacket, and a neck scarf, representing pride and tradition.",
 			"pt": "Parte da pilcha, traje típico dos gaúchos, composta por camisa, jaqueta e lenço no pescoço, representando orgulho e tradição.",
-			"portrait": "res://assets/characters/spark_reborn_face.png"
+			"portrait": "res://assets/characters/spark_face_dft_1.png"
 		},
 		"saci": {
 			"en": "Saci is one of the most iconic characters in Brazilian folklore. He's a mischievous one-legged boy who wears a magical red cap and plays tricks, like hiding objects and creating little whirlwinds.",
 			"pt": "O Saci é um dos personagens mais famosos do folclore brasileiro. É um menino travesso de uma perna só, que usa um gorro vermelho mágico e vive pregando peças, como esconder objetos e fazer redemoinhos de vento.",
-			"portrait": "res://assets/characters/spark_reborn_face.png"
+			"portrait": "res://assets/characters/spark_face_dft_1.png"
 		}
 	}
 
@@ -77,7 +77,7 @@ func _show_dialog(key: String):
 		{
 			"name": "Spark",
 			"text": en_text,
-			"portrait": "res://assets/characters/spark_reborn_face.png"
+			"portrait": "res://assets/characters/spark_face_dft_1.png"
 		}
 	]
 

@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://doya81wof881c"]
+
+[ext_resource type="Script" uid="uid://cro1udxbo5iat" path="res://scripts/ChooseCharacter.gd" id="1_abcde"]
+[ext_resource type="Texture2D" uid="uid://dbp8w1h6q5lhg" path="res://assets/backgrounds/avatar.png" id="2_fghij"]
+[ext_resource type="Texture2D" uid="uid://b2k2y42ihk13o" path="res://assets/characters/guri_sombra.png" id="3_lwm78"]
+[ext_resource type="Texture2D" uid="uid://bx2r7wb427pys" path="res://assets/characters/guria_sombra.png" id="4_5opw6"]
+[ext_resource type="FontFile" uid="uid://cb3h2rss2rg7b" path="res://assets/font/madness_hyperactive/Madness Hyperactive.otf" id="5_lwm78"]
+
+[node name="ChooseCharacter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abcde")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fghij")
+expand_mode = 1
+
+[node name="SelectButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 592.0
+offset_top = -116.0
+offset_right = 742.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Select"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -738.0
+offset_top = -115.0
+offset_right = -588.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[node name="GuriButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 256.0
+offset_right = 1122.0
+offset_bottom = 1336.0
+scale = Vector2(0.59, 0.59)
+texture_normal = ExtResource("3_lwm78")
+
+[node name="GuriaButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 278.0
+offset_right = 1644.0
+offset_bottom = 1358.0
+scale = Vector2(0.575, 0.575)
+texture_normal = ExtResource("4_5opw6")
+
+[node name="GuriLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 67.0
+offset_right = 608.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0.996078, 0.811765, 0.121569, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("5_lwm78")
+theme_override_font_sizes/font_size = 150
+text = "Guri"
+
+[node name="GuriaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 909.0
+offset_top = 65.0
+offset_right = 1137.0
+offset_bottom = 222.0
+theme_override_colors/font_color = Color(0.996078, 0.811765, 0.121569, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("5_lwm78")
+theme_override_font_sizes/font_size = 150
+text = "Guria"

@@ -7,7 +7,8 @@ func _ready():
 	hide()
 
 func set_text(text):
-	label.text = text
+	if label:
+		label.text = text
 
 func show_feedback():
 	show()

@@ -37,20 +37,34 @@ var word_data = []
 var dialog_data = [
 	{
 		"name": "Spark",
-		"text": "Olá! Vamos resolver palavras cruzadas em inglês",
-		"portrait": "res://assets/characters/spark_reborn_face.png"
+		"en": "Well howdy, buddy! Let's solve some English crosswords, shall we?",
+		"pt": "Bah, tchê! Vamos resolver umas palavras cruzadas em inglês!",
+		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	},
 	{
 		"name": "Spark",
-		"text": "Arraste seu dedo sobre as letras para formar as palavras!",
-		"portrait": "res://assets/characters/spark_reborn_face.png"
+		"en": "Slide your finger over them letters to build the words, partner!",
+		"pt": "Arrasta teu dedo por cima das letras pra formar as palavras, vivente!",
+		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	},
 	{
 		"name": "Spark",
-		"text": "Vamos começar!",
-		"portrait": "res://assets/characters/spark_reborn_face.png"
+		"en": "Alrighty then, let's get started, folks!",
+		"pt": "Vamos dar início, gurizada!",
+		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	}
 ]
+
+var completion_dialog = [
+	{
+		"name": "Spark",
+		"en": "Wow, dude! You nailed it!",
+		"pt": "Bah tchê! Tirou de letra!",
+		"portrait": "res://assets/characters/spark_face_dft_1.png"
+	}
+]
+
+var can_interact = false
 
 func _ready():
 	# Connect the minigame completion signal to GameManager
@@ -214,11 +228,6 @@ func create_visual_grid():
 				style.border_width_bottom = 2
 				cell.add_theme_stylebox_override("panel", style)
 
-				# Verifica se a fonte existe antes de usá-la
-				var font_res = load("res://assets/fonts/game_font.tres")
-				if font_res:
-					letter_label.add_theme_font_override("font", font_res)
-
 				cell.add_child(letter_label)
 				cell.set_meta("letter", grid_value)
 				cell.set_meta("revealed", false)
@@ -235,17 +244,13 @@ func create_visual_grid():
 			crossword_grid.add_child(cell)
 
 func setup_ui():
-	# Configura elementos da UI
-	var font_res = load("res://assets/fonts/game_font.tres")
-	if font_res:
-		word_clue_label.add_theme_font_override("font", font_res)
-		feedback_label.add_theme_font_override("font", font_res)
 
 	feedback_label.visible = false
 	progress_bar.max_value = 100
 	progress_bar.value = 0
 
 func start_minigame():
+	can_interact = false
 	start_location_dialog()
 	setup_next_word()
 
@@ -442,10 +447,16 @@ func check_word_answer(formed_word):
 		# Atualiza progresso
 		progress_bar.value = float(completed_count) / float(total_words) * 100
 
-		# Próxima palavra após delay
-		await get_tree().create_timer(1.5).timeout
-		current_word_index += 1
-		setup_next_word()
+		# Verifica se completou todas as palavras
+		if completed_count >= total_words:
+			# Pequeno delay antes de mostrar a mensagem de conclusão
+			await get_tree().create_timer(1.5).timeout
+			complete_minigame()
+		else:
+			# Próxima palavra após delay
+			await get_tree().create_timer(1.5).timeout
+			current_word_index += 1
+			setup_next_word()
 	else:
 		# Resposta incorreta
 		show_negative_feedback()
@@ -519,21 +530,20 @@ func show_negative_feedback():
 	feedback_label.visible = false
 
 func complete_minigame():
+	can_interact = false
 	show_completion_message()
 
 func show_completion_message():
-	var final_messages = [
-		"Parabéns! Você completou o crossword! 🎉",
-		"Você aprendeu " + str(completed_count) + " palavras em inglês!",
-		"Spark está muito orgulhoso de você!",
-		"Vamos para o próximo desafio!"
-	]
-
-	spark_dialog.show_messages(final_messages)
-	await spark_dialog.messages_finished
+	var dialog_box = $UI/DialogBox
+	dialog_box.start_dialog(completion_dialog)
+	await dialog_box.dialog_ended
+	can_interact = true
 
 	# Emite sinal de conclusão para o GameManager
 	minigame_completed.emit(true)
+	
+	# Volta para a tela inicial do jogo
+	get_tree().change_scene_to_file("res://scenes/Home.tscn")
 
 # Classe Word adaptada do código original
 class Word:
@@ -706,3 +716,12 @@ class Crossword:
 
 			if row >= 0 and row < rows and col >= 0 and col < cols:
 				grid[row][col] = word.word[i]
+
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		if not can_interact:
+			can_interact = true
+			$UI/DialogBox.hide()
+			return
+		if $UI/DialogBox.visible:
+			$UI/DialogBox.hide()

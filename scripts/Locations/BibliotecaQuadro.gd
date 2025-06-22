@@ -7,13 +7,15 @@ extends Node2D
 var dialog_data = [
 	{
 		"name": "Spark",
-		"text": "Este é o nosso jogo de palavras cruzadas em inglês!",
-		"portrait": "res://assets/characters/spark_reborn_face.png"
+		"en": "Yup, this here's our English crossword game. Mighty fun, if ya ask me!",
+		"pt": "Esse aqui é o nosso jogo de palavras cruzadas em inglês, tri legal, né?",
+		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	},
 	{
 		"name": "Spark",
-		"text": "Clique no botão para começar a jogar e aprender novas palavras!",
-		"portrait": "res://assets/characters/spark_reborn_face.png"
+		"en": "Hit that button and let's get rollin'! Time to learn some new words, cowboy!",
+		"pt": "Clica no botão ali e te manda no jogo, que é baita oportunidade pra aprender novas palavras, guria(o)!",
+		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	}
 ]
 

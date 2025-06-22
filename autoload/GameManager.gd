@@ -4,9 +4,10 @@ var current_scene = null
 var player = null
 var current_location = "Home"
 var minigame_to_load = ""
+var player_character = null
 
 func _ready():
-	load_home_scene()
+	pass
 
 func load_home_scene():
 	change_scene("res://scenes/Home.tscn")

@@ -8,6 +8,10 @@ func start():
 
 # Called when the minigame ends
 func end(success):
+	if success:
+		AudioManager.play_success_sound()
+	else:
+		AudioManager.play_failure_sound()
 	minigame_completed.emit(success)
 
 # Reset the minigame to its initial state

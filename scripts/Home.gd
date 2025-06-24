@@ -55,6 +55,7 @@ func _on_location_sign_pressed(location_name, minigame_name, target_position):
 	GameManager.load_location_scene(location_name)
 
 func _on_train_station_sign_pressed():
+	AudioManager.play_click_sound()
 	print("Clicou em Train Station, carregando cena...")
 
 	# Configura o minigame antes de carregar a localização
@@ -67,6 +68,7 @@ func _on_train_station_sign_pressed():
 	GameManager.current_location = "TrainStation"
 
 func _on_crossword_sign_pressed():
+	AudioManager.play_click_sound()
 	print("Clicou em Biblioteca, carregando cena...")
 
 	# Usamos a forma mais simples e direta possível
@@ -76,11 +78,13 @@ func _on_crossword_sign_pressed():
 	GameManager.current_location = "Biblioteca"
 
 func _on_museu_sign_pressed():
+	AudioManager.play_click_sound()
 	print("Clicou em Museu, carregando cena...")
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/CaminhoMuseu.tscn")
 	GameManager.current_location = "CaminhoMuseu"
 
 func _on_chute_verbo_sign_pressed():
+	AudioManager.play_click_sound()
 	print("Clicou em Estádio, carregando cena...")
 	print("Verificando se o arquivo do estádio existe...")
 
@@ -92,5 +96,6 @@ func _on_chute_verbo_sign_pressed():
 	GameManager.current_location = "Estadio"
 
 func _on_menu_button_pressed():
+	AudioManager.play_click_sound()
 	print("Clicou em Menu, retornando ao menu...")
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Menu.tscn")

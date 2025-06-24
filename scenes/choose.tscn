@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6x1g2w7y4q8j"]
 
-[ext_resource type="Script" path="res://scripts/ChooseCharacter.gd" id="1_abcde"]
-[ext_resource type="Texture2D" path="res://assets/backgrounds/avatar.png" id="2_fghij"]
+[ext_resource type="Script" uid="uid://cro1udxbo5iat" path="res://scripts/ChooseCharacter.gd" id="1_abcde"]
+[ext_resource type="Texture2D" uid="uid://dbp8w1h6q5lhg" path="res://assets/backgrounds/avatar.png" id="2_fghij"]
 
 [node name="choose" type="Control"]
 layout_mode = 3
@@ -50,4 +50,4 @@ offset_right = 75.0
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Back" 
+text = "Back"

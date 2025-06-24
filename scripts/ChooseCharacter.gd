@@ -11,6 +11,12 @@ func _ready():
 	guri_button.pressed.connect(_on_guri_button_pressed)
 	guria_button.pressed.connect(_on_guria_button_pressed)
 	
+	# Connect hover sounds
+	$BackButton.mouse_entered.connect(_on_button_hover)
+	$SelectButton.mouse_entered.connect(_on_button_hover)
+	guri_button.mouse_entered.connect(_on_button_hover)
+	guria_button.mouse_entered.connect(_on_button_hover)
+	
 	# Initially disable select button until a character is chosen
 	$SelectButton.disabled = true
 	update_selection_visuals()
@@ -46,3 +52,6 @@ func update_selection_visuals():
 	else:
 		guri_button.modulate = Color(1, 1, 1, 1) # Normal
 		guria_button.modulate = Color(1, 1, 1, 1) # Normal 
+
+func _on_button_hover():
+	AudioManager.play_hover_sound()

@@ -31,6 +31,13 @@ func _ready():
 	$LocationSigns/ChuteVerboSign.pressed.connect(_on_chute_verbo_sign_pressed)
 	# Connect Menu button to return to menu
 	$MenuButton.pressed.connect(_on_menu_button_pressed)
+	
+	# Connect hover sounds for signs
+	$LocationSigns/TrainStationSign.mouse_entered.connect(_on_sign_hover)
+	$LocationSigns/CrosswordSign.mouse_entered.connect(_on_sign_hover)
+	$LocationSigns/MuseuSign.mouse_entered.connect(_on_sign_hover)
+	$LocationSigns/ChuteVerboSign.mouse_entered.connect(_on_sign_hover)
+	$MenuButton.mouse_entered.connect(_on_sign_hover)
 
 func start_intro_dialog():
 	var dialog_box = $UI/DialogBox
@@ -99,3 +106,6 @@ func _on_menu_button_pressed():
 	AudioManager.play_click_sound()
 	print("Clicou em Menu, retornando ao menu...")
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Menu.tscn")
+
+func _on_sign_hover():
+	AudioManager.play_hover_sound()

@@ -1,11 +1,16 @@
 extends Control
 
 func _ready():
-	AudioManager.play_music("res://assets/sounds/music/home_theme.mp3")
+	AudioManager.play_music("res://assets/sounds/music/home_theme.ogg")
 	# Connect the Play button to the function that loads the Home scene
 	$VBoxContainer/PlayButton.pressed.connect(_on_play_button_pressed)
 	$VBoxContainer/ChooseCharButton.pressed.connect(_on_choose_char_button_pressed)
 	$VBoxContainer/ExitButton.pressed.connect(_on_exit_button_pressed)
+	
+	# Connect hover sounds
+	$VBoxContainer/PlayButton.mouse_entered.connect(_on_button_hover)
+	$VBoxContainer/ChooseCharButton.mouse_entered.connect(_on_button_hover)
+	$VBoxContainer/ExitButton.mouse_entered.connect(_on_button_hover)
 
 func _on_play_button_pressed():
 	AudioManager.play_click_sound()
@@ -21,3 +26,6 @@ func _on_exit_button_pressed():
 	AudioManager.play_click_sound()
 	print("Exit button pressed, closing the game...")
 	get_tree().quit() 
+
+func _on_button_hover():
+	AudioManager.play_hover_sound()

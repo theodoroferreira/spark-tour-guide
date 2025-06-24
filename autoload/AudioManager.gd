@@ -48,6 +48,9 @@ func setup_audio_players():
 func play_music(music_path: String, loop: bool = true):
 	var music = load(music_path)
 	if music:
+		# Check if the same music is already playing
+		if current_music == music and music_player.playing:
+			return
 		current_music = music
 		music_player.stream = music
 		if loop and music is AudioStreamOggVorbis:

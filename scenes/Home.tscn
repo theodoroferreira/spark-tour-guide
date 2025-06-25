@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b86hfu3rd1kem" path="res://assets/placas/library.png" id="7_library"]
 [ext_resource type="Texture2D" uid="uid://dg4do5gnwkkfg" path="res://assets/placas/score_verb.png" id="9_score_verb"]
 [ext_resource type="Texture2D" uid="uid://4d4pncpna64l" path="res://assets/placas/train_station.png" id="11_train_station"]
+[ext_resource type="FontFile" uid="uid://cb3h2rss2rg7b" path="res://assets/font/madness_hyperactive/Madness Hyperactive.otf" id="13_dch01"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_oir2t"]
 
@@ -98,7 +99,6 @@ theme_override_font_sizes/font_size = 18
 text = "Menu"
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="DialogBox" parent="UI" instance=ExtResource("3_osgcs")]
 offset_left = -3.0

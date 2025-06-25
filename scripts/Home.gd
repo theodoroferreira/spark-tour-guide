@@ -43,6 +43,8 @@ func _ready():
 	$LocationSigns/MuseuSign.mouse_entered.connect(_on_sign_hover)
 	$LocationSigns/ChuteVerboSign.mouse_entered.connect(_on_sign_hover)
 	$MenuButton.mouse_entered.connect(_on_sign_hover)
+	# Connect hover effects for location signs
+	connect_hover_effects()
 
 func start_intro_dialog():
 	var dialog_box = $UI/DialogBox
@@ -114,3 +116,22 @@ func _on_menu_button_pressed():
 
 func _on_sign_hover():
 	AudioManager.play_hover_sound()
+func connect_hover_effects():
+	var signs = [
+		$LocationSigns/TrainStationSign,
+		$LocationSigns/CrosswordSign,
+		$LocationSigns/MuseuSign,
+		$LocationSigns/ChuteVerboSign
+	]
+	
+	for sign in signs:
+		sign.mouse_entered.connect(_on_sign_mouse_entered.bind(sign))
+		sign.mouse_exited.connect(_on_sign_mouse_exited.bind(sign))
+
+func _on_sign_mouse_entered(sign):
+	# Add white shadow effect
+	sign.modulate = Color(1.4, 1.5, 1.3, 1.0)  # Brighter white effect
+
+func _on_sign_mouse_exited(sign):
+	# Remove shadow effect
+	sign.modulate = Color(1.0, 1.0, 1.0, 1.0)  # Normal color

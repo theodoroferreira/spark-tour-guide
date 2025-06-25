@@ -20,6 +20,7 @@ func _ready():
 		GameManager.estadio_dialog_shown = true
 	
 	# Aguarda um frame para garantir que todos os nós estejam prontos
+	
 	await get_tree().process_frame
 
 	# Verifica se os botões existem antes de conectar

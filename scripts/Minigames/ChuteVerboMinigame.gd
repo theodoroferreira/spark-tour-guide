@@ -176,7 +176,7 @@ func _on_ball_pressed(ball_index):
 		total_questions_answered += 1
 		add_score(points_per_correct)
 		animate_ball_to_goal(ball)
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.2).timeout  # Ajustado para 1.2s
 		_show_dialog(success_dialog, true)  # true = acertou
 		ball.visible = false
 	else:
@@ -184,25 +184,39 @@ func _on_ball_pressed(ball_index):
 		total_questions_answered += 1
 		add_score(points_per_incorrect)
 		animate_ball_out(ball)
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.4).timeout  # Ajustado para 1.4s
 		_show_dialog(error_dialog, false)  # false = errou
 		ball.visible = false
 
 func animate_ball_to_goal(ball):
 	if not ball:
 		return
+
+	# Cria uma curva suave para simular um chute real
 	var tween = create_tween()
-	tween.tween_property(ball, "position", Vector2(0, -300), 1.0)
-	tween.parallel().tween_property(ball, "scale", Vector2(0.05, 0.05), 1.0)
+	tween.set_parallel(true)
+
+	# Animação da posição - movimento original para o gol
+	var duration = 1.0
+	tween.tween_property(ball, "position", Vector2(0, -300), duration)
+	tween.parallel().tween_property(ball, "scale", Vector2(0.07, 0.07), duration)  # Reduz para 7% do tamanho
 
 func animate_ball_out(ball):
 	if not ball:
 		return
-	var tween = create_tween()
+
+	# Escolhe um lado aleatório (esquerda ou direita)
 	var random_side = randi() % 2
 	var target_x = 800 if random_side == 0 else -800
-	tween.tween_property(ball, "position", Vector2(target_x, 0), 1.0)
-	tween.parallel().tween_property(ball, "scale", Vector2(0.05, 0.05), 1.0)
+
+	# Cria uma curva para bolas que vão para fora
+	var tween = create_tween()
+	tween.set_parallel(true)
+
+	# Animação da posição - movimento original para fora
+	var duration = 1.2
+	tween.tween_property(ball, "position", Vector2(target_x, 0), duration)
+	tween.parallel().tween_property(ball, "scale", Vector2(0.07, 0.07), duration)  # Reduz para 7% do tamanho
 
 func _on_back_button_pressed():
 	print("Voltando para o estádio...")
@@ -238,7 +252,7 @@ func _show_dialog(dialog_data, is_correct):
 		print("Diálogo já está aberto ou animando, ignorando.")
 		return
 	dialog_open = true
-	
+
 	# Se acertou, sempre carrega nova questão
 	# Se errou, só carrega se todas as bolas foram chutadas
 	if is_correct:
@@ -249,7 +263,7 @@ func _show_dialog(dialog_data, is_correct):
 	# Garantir que o sinal anterior foi desconectado
 	if dialog_box.dialog_ended.is_connected(_on_dialog_ended):
 		dialog_box.dialog_ended.disconnect(_on_dialog_ended)
-	
+
 	# Resetar DialogBox antes de iniciar
 	dialog_box.reset()
 	# Conectar o novo sinal

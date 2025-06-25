@@ -36,6 +36,9 @@ func _ready():
 	$LocationSigns/ChuteVerboSign.pressed.connect(_on_chute_verbo_sign_pressed)
 	# Connect Menu button to return to menu
 	$MenuButton.pressed.connect(_on_menu_button_pressed)
+	
+	# Connect hover effects for location signs
+	connect_hover_effects()
 
 func start_intro_dialog():
 	var dialog_box = $UI/DialogBox
@@ -104,3 +107,23 @@ func _on_menu_button_pressed():
 	AudioManager.play_click_sound()
 	print("Clicou em Menu, retornando ao menu...")
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Menu.tscn")
+
+func connect_hover_effects():
+	var signs = [
+		$LocationSigns/TrainStationSign,
+		$LocationSigns/CrosswordSign,
+		$LocationSigns/MuseuSign,
+		$LocationSigns/ChuteVerboSign
+	]
+	
+	for sign in signs:
+		sign.mouse_entered.connect(_on_sign_mouse_entered.bind(sign))
+		sign.mouse_exited.connect(_on_sign_mouse_exited.bind(sign))
+
+func _on_sign_mouse_entered(sign):
+	# Add white shadow effect
+	sign.modulate = Color(1.4, 1.5, 1.3, 1.0)  # Brighter white effect
+
+func _on_sign_mouse_exited(sign):
+	# Remove shadow effect
+	sign.modulate = Color(1.0, 1.0, 1.0, 1.0)  # Normal color

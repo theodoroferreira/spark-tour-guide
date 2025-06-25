@@ -89,6 +89,7 @@ func _ready():
 	start_minigame()
 
 func _on_pause_button_pressed():
+	AudioManager.play_click_sound()
 	is_paused = !is_paused
 	if is_paused:
 		pause_button.text = "Continuar"
@@ -138,6 +139,7 @@ func hide_pause_menu():
 		$UI/PausePanel.queue_free()
 
 func _on_restart_button_pressed():
+	AudioManager.play_click_sound()
 	# Limpa o grid atual
 	for child in crossword_grid.get_children():
 		child.queue_free()
@@ -156,6 +158,7 @@ func _on_restart_button_pressed():
 	_on_pause_button_pressed()
 
 func _on_quit_button_pressed():
+	AudioManager.play_click_sound()
 	# Volta para a tela inicial do crossword
 	get_tree().change_scene_to_file("res://scenes/Locations/BibliotecaQuadro.tscn")
 
@@ -493,6 +496,7 @@ func fill_word_in_grid(word):
 			await get_tree().create_timer(0.1).timeout
 
 func show_positive_feedback():
+	AudioManager.play_correct_answer()
 	var messages = ["Nice!", "Super Cool!", "Parabéns!", "Muito bem!", "Excellent!"]
 	feedback_label.text = messages[randi() % messages.size()]
 	feedback_label.modulate = Color.GREEN
@@ -513,6 +517,7 @@ func show_positive_feedback():
 	feedback_label.visible = false
 
 func show_negative_feedback():
+	AudioManager.play_failure_sound()
 	var messages = ["Try again!", "Tente novamente!", "Quase lá!", "You can do it!"]
 	feedback_label.text = messages[randi() % messages.size()]
 	feedback_label.modulate = Color.ORANGE

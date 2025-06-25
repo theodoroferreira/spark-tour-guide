@@ -22,9 +22,11 @@ func _ready():
 	update_selection_visuals()
 
 func _on_back_button_pressed():
+	AudioManager.play_click_sound()
 	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
 
 func _on_select_button_pressed():
+	AudioManager.play_click_sound()
 	if selected_character:
 		GameManager.player_character = selected_character
 		print("Character selected: ", GameManager.player_character)
@@ -33,11 +35,13 @@ func _on_select_button_pressed():
 		print("No character selected.")
 
 func _on_guri_button_pressed():
+	AudioManager.play_click_sound()
 	selected_character = "guri"
 	$SelectButton.disabled = false
 	update_selection_visuals()
 
 func _on_guria_button_pressed():
+	AudioManager.play_click_sound()
 	selected_character = "guria"
 	$SelectButton.disabled = false
 	update_selection_visuals()

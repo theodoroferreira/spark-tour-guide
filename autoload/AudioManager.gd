@@ -17,7 +17,7 @@ var ui_player: AudioStreamPlayer
 var master_volume: float = 1.0
 var music_volume: float = 0.7
 var sfx_volume: float = 0.8
-var ui_volume: float = 0.9
+var ui_volume: float = 0.5
 
 # Current music track
 var current_music: AudioStream
@@ -62,6 +62,36 @@ func play_music(music_path: String, loop: bool = true):
 func stop_music():
 	music_player.stop()
 
+func fade_out_music(duration: float = 1.0):
+	if music_player.playing:
+		var tween = create_tween()
+		tween.tween_property(music_player, "volume_db", -60.0, duration)
+		await tween.finished
+		music_player.stop()
+		music_player.volume_db = 0.0
+
+func fade_in_music(music_path: String, duration: float = 1.0, target_volume: float = 0.7, loop: bool = true):
+	var music = load(music_path)
+	if music:
+		current_music = music
+		music_player.stream = music
+		if loop and music is AudioStreamOggVorbis:
+			music.loop = true
+		elif loop and music is AudioStreamWAV:
+			music.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		
+		music_player.volume_db = -60.0
+		music_player.play()
+		
+		var tween = create_tween()
+		var target_db = linear_to_db(target_volume)
+		tween.tween_property(music_player, "volume_db", target_db, duration)
+		await tween.finished
+
+func transition_music(from_music_path: String, to_music_path: String, fade_duration: float = 1.0, to_volume: float = 0.7):
+	await fade_out_music(fade_duration)
+	await fade_in_music(to_music_path, fade_duration, to_volume)
+
 func play_sfx(sfx_path: String):
 	var sfx = load(sfx_path)
 	if sfx:
@@ -81,14 +111,14 @@ func play_click_sound():
 func play_hover_sound():
 	play_ui_sound("res://assets/sounds/ui/hover.wav")
 
-func play_success_sound():
-	play_sfx("res://assets/sounds/sfx/success.wav")
+func play_kick_sound():
+	play_sfx("res://assets/sounds/sfx/soccer_kick.wav")
 
 func play_failure_sound():
-	play_sfx("res://assets/sounds/sfx/failure.wav")
+	play_sfx("res://assets/sounds/sfx/incorrect_sound.wav")
 
 func play_correct_answer():
-	play_sfx("res://assets/sounds/sfx/correct-and-incorrect-chime.wav")
+	play_sfx("res://assets/sounds/sfx/correct_sound.wav")
 
 # Volume controls
 func set_master_volume(volume: float):

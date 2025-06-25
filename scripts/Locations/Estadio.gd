@@ -42,9 +42,11 @@ func start_location_dialog():
 	dialog_box.start_dialog(dialog_data)
 
 func _on_enter_button_pressed():
+	AudioManager.play_click_sound()
 	print("Entrando no estádio, carregando minigame...")
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Minigames/ChuteVerboMinigame.tscn")
 
 func _on_back_button_pressed():
+	AudioManager.play_click_sound()
 	print("Voltando para o menu inicial...")
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Home.tscn")

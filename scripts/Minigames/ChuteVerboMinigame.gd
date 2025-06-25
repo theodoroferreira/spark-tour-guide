@@ -158,6 +158,7 @@ func add_score(points):
 	update_score()
 
 func _on_ball_pressed(ball_index):
+	AudioManager.play_kick_sound()
 	if balls_clicked[ball_index-1]:
 		return
 	balls_clicked[ball_index-1] = true
@@ -200,6 +201,9 @@ func animate_ball_to_goal(ball):
 	var duration = 1.0
 	tween.tween_property(ball, "position", Vector2(0, -300), duration)
 	tween.parallel().tween_property(ball, "scale", Vector2(0.07, 0.07), duration)  # Reduz para 7% do tamanho
+	await get_tree().create_timer(0.8).timeout
+	AudioManager.play_correct_answer()
+	
 
 func animate_ball_out(ball):
 	if not ball:
@@ -217,12 +221,17 @@ func animate_ball_out(ball):
 	var duration = 1.2
 	tween.tween_property(ball, "position", Vector2(target_x, 0), duration)
 	tween.parallel().tween_property(ball, "scale", Vector2(0.07, 0.07), duration)  # Reduz para 7% do tamanho
+	await get_tree().create_timer(0.8).timeout
+	AudioManager.play_failure_sound()
+	
 
 func _on_back_button_pressed():
+	AudioManager.play_click_sound()
 	print("Voltando para o estádio...")
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/Estadio.tscn")
 
 func _on_home_button_pressed():
+	AudioManager.play_click_sound()
 	print("Voltando para o home...")
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Home.tscn")
 

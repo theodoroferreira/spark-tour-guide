@@ -7,9 +7,11 @@ func _ready():
 		$MuseuButton.pressed.connect(_on_museu_button_pressed)
 
 func _on_voltar_button_pressed():
+	AudioManager.play_click_sound()
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Home.tscn")
 	GameManager.current_location = "Home"
 
 func _on_museu_button_pressed():
+	AudioManager.play_click_sound()
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/Museu.tscn")
 	GameManager.current_location = "Museu" 

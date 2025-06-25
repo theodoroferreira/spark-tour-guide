@@ -47,6 +47,7 @@ func start_location_dialog():
 	dialog_box.start_dialog(dialog_data)
 
 func _on_quadro_clicked():
+	AudioManager.play_click_sound()
 	print("Quadro clicado!")
 	# Carrega a cena do quadro da biblioteca usando o método direto
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/BibliotecaQuadro.tscn")
@@ -55,6 +56,7 @@ func _on_quadro_clicked():
 	GameManager.current_location = "BibliotecaQuadro"
 
 func _on_return_button_clicked():
+	AudioManager.play_click_sound()
 	print("Botão Voltar clicado!")
 	# Volta para a tela Home usando o método direto
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Home.tscn")
@@ -63,6 +65,7 @@ func _on_return_button_clicked():
 	GameManager.current_location = "Home"
 
 func _on_home_button_clicked():
+	AudioManager.play_click_sound()
 	print("Botão Home clicado!")
 	# Volta para a tela Home usando o método direto
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Home.tscn")

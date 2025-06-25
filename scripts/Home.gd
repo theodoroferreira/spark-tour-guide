@@ -106,6 +106,10 @@ func _on_chute_verbo_sign_pressed():
 func _on_menu_button_pressed():
 	AudioManager.play_click_sound()
 	print("Clicou em Menu, retornando ao menu...")
+	
+	# Transition back to menu music
+	AudioManager.transition_music("res://assets/sounds/music/home_theme_track.ogg", "res://assets/sounds/music/home_theme.ogg", 1.0, 0.7)
+	
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Menu.tscn")
 
 func connect_hover_effects():

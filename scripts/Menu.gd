@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	self.theme = preload("res://assets/themes/main_theme.tres")
 	AudioManager.play_music("res://assets/sounds/music/home_theme.ogg")
 	# Connect the Play button to the function that loads the Home scene
 	$VBoxContainer/PlayButton.pressed.connect(_on_play_button_pressed)

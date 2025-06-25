@@ -30,6 +30,10 @@ window/stretch/aspect="keep_height"
 window/size/width=1366
 window/size/height=768
 
+[gui]
+
+theme/custom="res://assets/themes/main_theme.tres"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

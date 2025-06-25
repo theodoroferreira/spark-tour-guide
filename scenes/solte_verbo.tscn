@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6x8v0j6y5n3q"]
+[gd_scene load_steps=3 format=3 uid="uid://b6x8v0j6y5n3q"]
 
-[ext_resource type="Script" path="res://scripts/solte_verbo.gd" id="1_2k4m3"]
-[ext_resource type="Texture2D" uid="uid://c8q6y4n2m1p0x" path="res://assets/backgrounds/estadio.jpg" id="2_3k4m3"]
+[ext_resource type="Script" uid="uid://b5m4gb7gry4m1" path="res://scripts/solte_verbo.gd" id="1_2k4m3"]
+[ext_resource type="Texture2D" uid="uid://cg24ovx64odri" path="res://assets/backgrounds/estadio.jpg" id="2_3k4m3"]
 
 [node name="SolteVerbo" type="Node2D"]
 script = ExtResource("1_2k4m3")

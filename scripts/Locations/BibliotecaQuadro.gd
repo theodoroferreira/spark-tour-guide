@@ -37,7 +37,11 @@ func _ready():
 
 	# Inicia o diálogo após um breve atraso
 	await get_tree().create_timer(0.5).timeout
-	start_location_dialog()
+	
+	# Only show intro dialog if it hasn't been shown before
+	if not GameManager.biblioteca_quadro_dialog_shown:
+		start_location_dialog()
+		GameManager.biblioteca_quadro_dialog_shown = true
 
 func start_location_dialog():
 	var dialog_box = $UI/DialogBox

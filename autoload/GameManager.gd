@@ -5,6 +5,12 @@ var player = null
 var current_location = "Home"
 var minigame_to_load = ""
 var player_character = null
+var welcome_dialog_shown = false
+var train_station_dialog_shown = false
+var biblioteca_dialog_shown = false
+var biblioteca_quadro_dialog_shown = false
+var caminho_museu_dialog_shown = false
+var estadio_dialog_shown = false
 
 func _ready():
 	pass

@@ -7,7 +7,7 @@ extends Node2D
 var dialog_data = [
 	{
 		"name": "Spark",
-		"en": "Welcome to the Library, partner! This here’s the place to learn yerself some fine English words!",
+		"en": "Welcome to the Library, partner! This here's the place to learn yerself some fine English words!",
 		"pt": "Bem-vindo à Biblioteca, tchê! Aqui tu vai aprender umas palavras em inglês de responsa!",
 		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	},
@@ -36,7 +36,11 @@ func _ready():
 
 	# Inicia o diálogo após um breve atraso
 	await get_tree().create_timer(0.5).timeout
-	start_location_dialog()
+	
+	# Only show intro dialog if it hasn't been shown before
+	if not GameManager.biblioteca_dialog_shown:
+		start_location_dialog()
+		GameManager.biblioteca_dialog_shown = true
 
 func start_location_dialog():
 	var dialog_box = $UI/DialogBox

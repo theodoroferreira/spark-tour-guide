@@ -3,6 +3,7 @@ extends Control
 func _ready():
 	self.theme = preload("res://assets/themes/main_theme.tres")
 	AudioManager.play_music("res://assets/sounds/music/home_theme.ogg")
+	AudioManager.set_music_volume(0.25)
 	# Connect the Play button to the function that loads the Home scene
 	$VBoxContainer/PlayButton.pressed.connect(_on_play_button_pressed)
 	$VBoxContainer/ChooseCharButton.pressed.connect(_on_choose_char_button_pressed)
@@ -24,6 +25,9 @@ func _on_play_button_pressed():
 	GameManager.biblioteca_quadro_dialog_shown = false
 	GameManager.caminho_museu_dialog_shown = false
 	GameManager.estadio_dialog_shown = false
+	
+	# Fade out current music and fade in home_theme_track at low volume
+	AudioManager.transition_music("res://assets/sounds/music/home_theme.ogg", "res://assets/sounds/music/home_theme_track.ogg", 1.5, 0.3)
 	
 	# Load the Home scene
 	get_tree().change_scene_to_file("res://scenes/Home.tscn")

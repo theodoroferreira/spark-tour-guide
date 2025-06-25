@@ -6,6 +6,7 @@ signal dialog_ended
 @onready var name_label = $Panel/NameLabel
 @onready var portrait = $Panel/Portrait
 @onready var animation_player = $AnimationPlayer
+@onready var dialog_sound = $DialogSound
 
 var dialog_queue = []
 var is_dialog_active = false
@@ -16,6 +17,7 @@ var current_texts = { "en": "", "pt": "" }
 
 func _ready():
 	hide()
+	_setup_dialog_sound()
 
 func reset():
 	dialog_queue.clear()
@@ -67,6 +69,7 @@ func display_next_dialog():
 	
 	text_label.visible_ratio = 0
 	is_animating = true
+	_play_dialog_sound()
 	animation_player.play("text_appear")
 	await animation_player.animation_finished
 	is_animating = false
@@ -120,3 +123,18 @@ func _input(event):
 			is_animating = false
 		else:
 			display_next_dialog()
+
+func _setup_dialog_sound():
+	if not has_node("DialogSound"):
+		var audio_player = AudioStreamPlayer.new()
+		audio_player.name = "DialogSound"
+		add_child(audio_player)
+		dialog_sound = audio_player
+	
+	var sound_path = "res://assets/sounds/sfx/dialog_sound.wav"
+	if ResourceLoader.exists(sound_path):
+		dialog_sound.stream = load(sound_path)
+
+func _play_dialog_sound():
+	if dialog_sound and dialog_sound.stream:
+		dialog_sound.play()

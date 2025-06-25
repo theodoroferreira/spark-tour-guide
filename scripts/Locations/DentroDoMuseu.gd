@@ -128,10 +128,12 @@ func _notification(what):
 			$UI/DialogBox.dialog_ended.disconnect(_on_dialog_ended)
 
 func _on_voltar_button_pressed():
+	AudioManager.play_click_sound()
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/Museu.tscn")
 	GameManager.current_location = "Museu"
 
 func _on_button_pressed(idx):
+	AudioManager.play_click_sound()
 	match idx:
 		1:
 			_show_dialog("chimarrao")

@@ -57,6 +57,7 @@ func _on_start_minigame():
 	GameManager.minigame_to_load = "crossword/CrosswordMinigame"
 
 func _on_return_button_clicked():
+	AudioManager.play_click_sound()
 	print("Voltando para a Biblioteca...")
 	# Volta para a cena da biblioteca da forma mais direta
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/Biblioteca.tscn")
@@ -65,6 +66,7 @@ func _on_return_button_clicked():
 	GameManager.current_location = "Biblioteca"
 
 func _on_home_button_clicked():
+	AudioManager.play_click_sound()
 	print("Voltando para o Home...")
 	# Volta para a tela inicial da forma mais direta
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/Home.tscn")

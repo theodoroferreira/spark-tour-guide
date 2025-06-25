@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4d7i21hn1y0s"]
+[gd_scene load_steps=5 format=3 uid="uid://b4d7i21hn1y0s"]
 
 [ext_resource type="Texture2D" uid="uid://de3oi44klioeg" path="res://assets/backgrounds/museu.png" id="1_museu_bg"]
 [ext_resource type="Script" uid="uid://dpg62vh5n0ung" path="res://scripts/Locations/Museu.gd" id="2_museu_script"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_dialog"]
+[ext_resource type="PackedScene" uid="uid://d2e8pvefg1rge" path="res://scenes/Player.tscn" id="4_0yp1j"]
 
 [node name="Museu" type="Node2D"]
 script = ExtResource("2_museu_script")
@@ -31,3 +32,7 @@ text = "Enter"
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="DialogBox" parent="UI" instance=ExtResource("3_dialog")]
+
+[node name="Player" parent="." instance=ExtResource("4_0yp1j")]
+position = Vector2(637, 580)
+scale = Vector2(0.7, 0.7)

@@ -6,14 +6,14 @@ extends Node2D
 var dialog_data = [
 	{
 		"name": "Spark",
-		"en": "Welcome to the Train Station! This is where people travel to other cities.",
-		"pt": "Bem-vindo à Estação de Trem! É aqui que as pessoas viajam para outras cidades.",
+		"en": "Welcome to the Train Station! The Ijuí railway station was inaugurated in 1911 and played a crucial role in the city's development, contributing to its emancipation in 1912.",
+		"pt": "Bem-vindo à Estação de Trem! A estação ferroviária de Ijuí foi inaugurada em 1911 e teve papel crucial no desenvolvimento da cidade, contribuindo para sua emancipação em 1912.",
 		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	},
 	{
 		"name": "Spark",
-		"en": "Let's play a game to learn words about traveling!",
-		"pt": "Vamos jogar um jogo para aprender palavras sobre viagens!",
+		"en": "It operated passenger trains until the 1980s and continues to be used for cargo. Today, the site houses the Sady Strapazzon Culture and Leisure Station, with museum, events and thematic wagons. Next to the station is the historic Itaí metal bridge, a landmark of engineering from that time.",
+		"pt": "Operou com trens de passageiros até os anos 1980 e continua sendo usada para cargas. Hoje, o local abriga a Estação de Cultura e Lazer Sady Strapazzon, com museu, eventos e vagões temáticos. Próxima à estação está a histórica ponte metálica do Itaí, marco da engenharia da época.",
 		"portrait": "res://assets/characters/spark_face_dft_1.png"
 	}
 ]

@@ -80,7 +80,7 @@ func _add_language_toggle():
 	
 	# Create new toggle button
 	var toggle_btn = Button.new()
-	toggle_btn.text = "*"
+	toggle_btn.text = "Translate"
 	toggle_btn.size = Vector2(32, 32)
 	toggle_btn.position = Vector2($Panel.size.x - 48, 8)
 	toggle_btn.focus_mode = Control.FOCUS_NONE

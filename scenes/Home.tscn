@@ -18,7 +18,7 @@
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_oir2t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1idv1"]
-bg_color = Color(0.8, 0.65, 0.1, 1)
+bg_color = Color(0.8, 0.65, 0.1, 0.447)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -42,12 +42,12 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0wfn"]
-bg_color = Color(0.996078, 0.811765, 0.121569, 1)
+bg_color = Color(0.996, 0.812, 0.122, 0.658)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8

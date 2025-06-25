@@ -42,12 +42,12 @@ navigation_polygon = SubResource("NavigationPolygon_oir2t")
 [node name="LocationSigns" type="Node2D" parent="."]
 
 [node name="TrainStationSign" type="TextureButton" parent="LocationSigns" groups=["location_signs", "scalable_ui"]]
-offset_left = 1008.0
-offset_top = 237.0
-offset_right = 1520.0
-offset_bottom = 749.0
-rotation = 0.198968
-scale = Vector2(0.55, 0.55)
+offset_left = 953.0
+offset_top = 79.0
+offset_right = 1953.0
+offset_bottom = 1079.0
+rotation = 0.0174533
+scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("11_train_station")
 stretch_mode = 3
 

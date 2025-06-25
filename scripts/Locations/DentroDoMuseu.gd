@@ -20,8 +20,11 @@ func _ready():
 		var btn = $ButtonsContainer.get_node("Button%d" % idx)
 		btn.pressed.connect(_on_button_pressed.bind(idx))
 
+	# Efeito de brilho ao passar o mouse
 	for btn in $ButtonsContainer.get_children():
 		btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		btn.mouse_entered.connect(_on_item_mouse_entered.bind(btn))
+		btn.mouse_exited.connect(_on_item_mouse_exited.bind(btn))
 
 func _show_dialog(key: String):
 	print("_show_dialog chamado com key:", key)
@@ -99,7 +102,7 @@ func _show_dialog(key: String):
 	dialog_label = $UI/DialogBox.get_node("Panel/TextLabel")
 
 	var toggle_btn = Button.new()
-	toggle_btn.text = "*"
+	toggle_btn.text = "Translate"
 	toggle_btn.size = Vector2(32, 32)
 	toggle_btn.position = Vector2($UI/DialogBox/Panel.size.x - 48, 8)
 	toggle_btn.focus_mode = Control.FOCUS_NONE
@@ -147,3 +150,9 @@ func _on_button_pressed(idx):
 			_show_dialog("pilcha")
 		6:
 			_show_dialog("saci")
+
+func _on_item_mouse_entered(btn):
+	btn.modulate = Color(1.4, 1.5, 1.3, 1.0)  # Brilho semelhante ao das placas da Home
+
+func _on_item_mouse_exited(btn):
+	btn.modulate = Color(1.0, 1.0, 1.0, 1.0)  # Cor normal

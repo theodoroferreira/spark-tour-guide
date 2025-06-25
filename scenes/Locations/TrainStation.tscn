@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dw7fl6hu74im" path="res://scripts/Locations/TrainStation.gd" id="1_8lcs3"]
 [ext_resource type="PackedScene" uid="uid://d2e8pvefg1rge" path="res://scenes/Player.tscn" id="2_isgb7"]
-[ext_resource type="Texture2D" uid="uid://bjvtqxsyyp770" path="res://reference_images/train_station.png" id="2_k6u8y"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/train_station.png" id="2_k6u8y"]
 [ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_v5e7i"]
 [ext_resource type="Texture2D" uid="uid://btcynuwhnwxxq" path="res://assets/characters/spark_reborn_svg.svg" id="4_517pj"]
 

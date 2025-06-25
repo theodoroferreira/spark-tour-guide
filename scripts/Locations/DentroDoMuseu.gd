@@ -103,8 +103,8 @@ func _show_dialog(key: String):
 
 	var toggle_btn = Button.new()
 	toggle_btn.text = "Translate"
-	toggle_btn.size = Vector2(32, 32)
-	toggle_btn.position = Vector2($UI/DialogBox/Panel.size.x - 48, 8)
+	toggle_btn.size = Vector2(160, 48)
+	toggle_btn.position = Vector2($UI/DialogBox/Panel.size.x - 182, 8)
 	toggle_btn.focus_mode = Control.FOCUS_NONE
 	toggle_btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	$UI/DialogBox/Panel.add_child(toggle_btn)

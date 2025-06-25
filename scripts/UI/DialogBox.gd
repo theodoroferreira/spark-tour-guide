@@ -81,9 +81,8 @@ func _add_language_toggle():
 	# Create new toggle button
 	var toggle_btn = Button.new()
 	toggle_btn.text = "Translate"
-	#toggle_btn.size = Vector2(100, 48)
-	toggle_btn.position = Vector2($Panel.size.x - 112, 8)
-	#toggle_btn.focus_mode = Control.FOCUS_NONE
+	toggle_btn.position = Vector2($Panel.size.x - 182, 8)
+	toggle_btn.custom_minimum_size = Vector2(160, 48)
 	toggle_btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	$Panel.add_child(toggle_btn)
 	toggle_btn.move_to_front()

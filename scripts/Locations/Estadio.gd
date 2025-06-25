@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	# Aguarda um frame para garantir que todos os nós estejam prontos
+	
 	await get_tree().process_frame
 
 	# Verifica se os botões existem antes de conectar

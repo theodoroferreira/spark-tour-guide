@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b33t81wdnlndr"]
+[gd_scene load_steps=15 format=3 uid="uid://b33t81wdnlndr"]
 
 [ext_resource type="Script" uid="uid://cdro1dmc4t3gy" path="res://scripts/Home.gd" id="1_p2yb4"]
 [ext_resource type="Texture2D" uid="uid://4xjwu3x6qceh" path="res://assets/backgrounds/inicio.png" id="2_72wqp"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://b86hfu3rd1kem" path="res://assets/placas/library.png" id="7_library"]
 [ext_resource type="Texture2D" uid="uid://dg4do5gnwkkfg" path="res://assets/placas/score_verb.png" id="9_score_verb"]
 [ext_resource type="Texture2D" uid="uid://4d4pncpna64l" path="res://assets/placas/train_station.png" id="11_train_station"]
-[ext_resource type="Texture2D" uid="uid://bx8nj7122ab51" path="res://assets/placas/train_station_enlightened.png" id="12_train_station_hover"]
 [ext_resource type="FontFile" uid="uid://cb3h2rss2rg7b" path="res://assets/font/madness_hyperactive/Madness Hyperactive.otf" id="13_dch01"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_oir2t"]
@@ -143,7 +142,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_x0wfn")
 text = "Menu"
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="DialogBox" parent="UI" instance=ExtResource("3_osgcs")]
 offset_left = -3.0

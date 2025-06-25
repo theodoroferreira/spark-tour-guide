@@ -85,5 +85,5 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_2h21y")
+&"": SubResource("AnimationLibrary_2h21y")
 }

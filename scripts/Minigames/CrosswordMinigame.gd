@@ -92,7 +92,7 @@ func _on_pause_button_pressed():
 	AudioManager.play_click_sound()
 	is_paused = !is_paused
 	if is_paused:
-		pause_button.text = "Continuar"
+		pause_button.text = "Continue"
 		show_pause_menu()
 	else:
 		pause_button.text = "Pause"
@@ -103,14 +103,14 @@ func show_pause_menu():
 	var pause_panel = Panel.new()
 	pause_panel.name = "PausePanel"
 	pause_panel.size = Vector2(400, 300)
-	pause_panel.position = Vector2(376, 174)
+	pause_panel.position = Vector2(568, 362)
 	
 	var vbox = VBoxContainer.new()
 	vbox.position = Vector2(50, 50)
 	vbox.size = Vector2(300, 200)
 	
 	var title = Label.new()
-	title.text = "Jogo Pausado"
+	title.text = "Game Paused"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 24)
 	

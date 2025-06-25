@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cpxlfbk1kln4g"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cpxlfbk1kln4g"]
 
 [ext_resource type="FontFile" uid="uid://cb3h2rss2rg7b" path="res://assets/font/madness_hyperactive/Madness Hyperactive.otf" id="1_font"]
 
@@ -50,6 +50,30 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5"]
+bg_color = Color(0.5, 0.5, 0.5, 0.8)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6"]
+bg_color = Color(0.996078, 0.811765, 0.121569, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_disabled_color = Color(0.8, 0.8, 0.8, 0.5)
@@ -70,3 +94,13 @@ Button/styles/focus = SubResource("StyleBoxFlat_2")
 Button/styles/hover = SubResource("StyleBoxFlat_2")
 Button/styles/normal = SubResource("StyleBoxFlat_1")
 Button/styles/pressed = SubResource("StyleBoxFlat_3")
+ProgressBar/colors/font_color = Color(1, 1, 1, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_shadow_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 1
+ProgressBar/constants/shadow_offset_x = 2
+ProgressBar/constants/shadow_offset_y = 2
+ProgressBar/font_sizes/font_size = 24
+ProgressBar/fonts/font = ExtResource("1_font")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_5")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_6")

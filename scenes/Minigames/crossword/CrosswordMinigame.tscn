@@ -76,9 +76,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 179.0
-offset_top = 210.0
+offset_top = 295.0
 offset_right = 307.0
-offset_bottom = 237.0
+offset_bottom = 322.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -125,28 +125,28 @@ scale = Vector2(0.761719, 0.793945)
 texture = ExtResource("9_3ma5l")
 
 [node name="Banana" type="Sprite2D" parent="."]
-position = Vector2(260, 762)
+position = Vector2(239, 783)
 scale = Vector2(0.578125, 0.539063)
 texture = ExtResource("6_jridl")
 flip_h = true
 
 [node name="GustavoLima" type="Sprite2D" parent="."]
-position = Vector2(852, 255)
+position = Vector2(732, 808)
 rotation = -0.263545
 scale = Vector2(0.524414, 0.511719)
 texture = ExtResource("7_ep7yp")
 
 [node name="Laranja" type="Sprite2D" parent="."]
-position = Vector2(982.625, 767.241)
+position = Vector2(978, 789)
 scale = Vector2(0.626465, 0.614224)
 texture = ExtResource("8_jaixg")
 
 [node name="Maca" type="Sprite2D" parent="."]
-position = Vector2(1278, 771)
+position = Vector2(1227, 769)
 scale = Vector2(0.588867, 0.618458)
 texture = ExtResource("9_4vxlo")
 
 [node name="Uva" type="Sprite2D" parent="."]
-position = Vector2(1270, 322)
+position = Vector2(1272, 478)
 scale = Vector2(0.556641, 0.556641)
 texture = ExtResource("10_oydad")

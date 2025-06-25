@@ -16,6 +16,15 @@ func _ready():
 func _on_play_button_pressed():
 	AudioManager.play_click_sound()
 	print("Play button pressed, loading Home scene...")
+	
+	# Reset all dialog flags so they show when coming from menu
+	GameManager.welcome_dialog_shown = false
+	GameManager.train_station_dialog_shown = false
+	GameManager.biblioteca_dialog_shown = false
+	GameManager.biblioteca_quadro_dialog_shown = false
+	GameManager.caminho_museu_dialog_shown = false
+	GameManager.estadio_dialog_shown = false
+	
 	# Load the Home scene
 	get_tree().change_scene_to_file("res://scenes/Home.tscn")
 

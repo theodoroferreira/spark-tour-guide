@@ -20,7 +20,12 @@ var dialog_data = [
 
 func _ready():
 	await get_tree().create_timer(0.5).timeout
-	start_intro_dialog()
+	
+	# Only show welcome dialog if it hasn't been shown before
+	if not GameManager.welcome_dialog_shown:
+		start_intro_dialog()
+		GameManager.welcome_dialog_shown = true
+	
 	# Connect Train Station sign to load location scene directly
 	$LocationSigns/TrainStationSign.pressed.connect(_on_train_station_sign_pressed)
 	# Connect Crossword sign to load the crossword minigame

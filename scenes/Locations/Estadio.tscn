@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8x70a02w3v4u"]
+[gd_scene load_steps=4 format=3 uid="uid://b8x70a02w3v4u"]
 
 [ext_resource type="Script" uid="uid://dbwn7onut2eob" path="res://scripts/Locations/Estadio.gd" id="1_estadio"]
 [ext_resource type="Texture2D" uid="uid://cg24ovx64odri" path="res://assets/backgrounds/estadio.jpg" id="2_estadio"]
+[ext_resource type="PackedScene" uid="uid://bcylxj15aelv3" path="res://scenes/UI/DialogBox.tscn" id="3_dialog"]
 
 [node name="Estadio" type="Node2D"]
 script = ExtResource("1_estadio")
@@ -55,3 +56,7 @@ offset_right = -20.0
 offset_bottom = 50.0
 grow_horizontal = 0
 text = "Back"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DialogBox" parent="UI" instance=ExtResource("3_dialog")]

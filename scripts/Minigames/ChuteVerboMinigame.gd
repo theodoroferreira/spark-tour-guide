@@ -30,7 +30,8 @@ var initial_ball_positions = [
 var success_dialog = [
 	{
 		"name": "Spark",
-		"text": "Gol, bah tche mandou bem!",
+		"en": "Goal! Well done, partner!",
+		"pt": "Gol, bah tche mandou bem!",
 		"portrait": "res://assets/characters/spark_reborn_face.png"
 	}
 ]
@@ -38,7 +39,17 @@ var success_dialog = [
 var error_dialog = [
 	{
 		"name": "Spark",
-		"text": "Errou tche, este não é o verbo correto!",
+		"en": "Wrong, partner! That's not the correct verb!",
+		"pt": "Errou tche, este não é o verbo correto!",
+		"portrait": "res://assets/characters/spark_reborn_face.png"
+	}
+]
+
+var intro_dialog = [
+	{
+		"name": "Spark",
+		"en": "Let's go, partner! Choose the right ball and hit the verb! If you do well, it goes in the goal, if you miss, the ball goes out of bounds! Let's see if you're sharp with verbs!",
+		"pt": "Vamos lá, guri! Escolha a bola certa e acerte o verbo! Se tu mandar bem, vai pro gol, se errar, a bola sai de campo! Vamos ver se tu tá afiado nos verbos!",
 		"portrait": "res://assets/characters/spark_reborn_face.png"
 	}
 ]
@@ -98,6 +109,13 @@ func connect_ball_signals():
 
 func start():
 	super.start()
+	show_intro_dialog()
+
+func show_intro_dialog():
+	dialog_open = true
+	dialog_box.start_dialog(intro_dialog)
+	await dialog_box.dialog_ended
+	dialog_open = false
 	load_new_question()
 
 func load_new_question():

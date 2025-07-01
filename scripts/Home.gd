@@ -83,13 +83,8 @@ func _on_train_station_sign_pressed():
 
 func _on_crossword_sign_pressed():
 	AudioManager.play_click_sound()
-	print("Clicou em Biblioteca, carregando cena...")
-
-	# Usamos a forma mais simples e direta possível
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/Biblioteca.tscn")
-
-	# Atualiza o estado no GameManager para referência
-	GameManager.current_location = "Biblioteca"
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/Unijui.tscn")
+	GameManager.current_location = "Unijui"
 
 func _on_museu_sign_pressed():
 	AudioManager.play_click_sound()

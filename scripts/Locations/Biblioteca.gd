@@ -57,12 +57,8 @@ func _on_quadro_clicked():
 
 func _on_return_button_clicked():
 	AudioManager.play_click_sound()
-	print("Botão Voltar clicado!")
-	# Volta para a tela Home usando o método direto
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/Home.tscn")
-
-	# Atualiza o estado no GameManager
-	GameManager.current_location = "Home"
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/Locations/Unijui.tscn")
+	GameManager.current_location = "Unijui"
 
 func _on_home_button_clicked():
 	AudioManager.play_click_sound()
